@@ -31,10 +31,8 @@ Requirements installation.
 
 1. Install the `bacon` [`npm`](https://www.npmjs.com) package.
 
-	> TODO update the package name.
-
 	```bash
-	npm install bacon
+	npm install @copernicon/bacon
 	```
 
 ## Configuration
