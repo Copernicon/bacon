@@ -1,0 +1,230 @@
+@layer core_base
+{
+	:root
+	{
+		--app-margin: 16px;
+		--app-radius: 4px;
+		--app-scrollbar-size: 12px;
+		--app-font-size: 16px;
+		--app-min-screen-width: 360px;
+		--app-column-width: 320px;
+
+		--app-color-0: rgb(0, 0, 0); /* hpluv(0, 0, 0); */
+
+		--app-color-10: rgb(27, 27, 27); /* hpluv(0, 0, 10); */
+		--app-color-red-10: rgb(41, 22, 26); /* hpluv(0, 100, 10); */
+		--app-color-orange-10: rgb(39, 24, 18); /* hpluv(30, 100, 10); */
+		--app-color-yellow-10: rgb(34, 26, 11); /* hpluv(60, 100, 10); */
+		--app-color-lime-10: rgb(27, 29, 10); /* hpluv(90, 100, 10); */
+		--app-color-green-10: rgb(18, 31, 14); /* hpluv(120, 100, 10); */
+		--app-color-turquoise-10: rgb(7, 32, 21); /* hpluv(150, 100, 10); */
+		--app-color-cyan-10: rgb(0, 32, 29); /* hpluv(180, 100, 10); */
+		--app-color-blue-10: rgb(3, 31, 35); /* hpluv(210, 100, 10); */
+		--app-color-violet-10: rgb(16, 29, 40); /* hpluv(240, 100, 10); */
+		--app-color-purple-10: rgb(28, 26, 41); /* hpluv(270, 100, 10); */
+		--app-color-magenta-10: rgb(36, 23, 39); /* hpluv(300, 100, 10); */
+		--app-color-rose-10: rgb(40, 21, 33); /* hpluv(330, 100, 10); */
+
+		--app-color-20: rgb(48, 48, 48); /* hpluv(0, 0, 20); */
+		--app-color-red-20: rgb(69, 40, 46); /* hpluv(0, 100, 20); */
+		--app-color-orange-20: rgb(66, 43, 34); /* hpluv(30, 100, 20); */
+		--app-color-yellow-20: rgb(59, 47, 24); /* hpluv(60, 100, 20); */
+		--app-color-lime-20: rgb(48, 50, 21); /* hpluv(90, 100, 20); */
+		--app-color-green-20: rgb(35, 53, 28); /* hpluv(120, 100, 20); */
+		--app-color-turquoise-20: rgb(17, 55, 39); /* hpluv(150, 100, 20); */
+		--app-color-cyan-20: rgb(1, 55, 50); /* hpluv(180, 100, 20); */
+		--app-color-blue-20: rgb(8, 54, 60); /* hpluv(210, 100, 20); */
+		--app-color-violet-20: rgb(31, 50, 67); /* hpluv(240, 100, 20); */
+		--app-color-purple-20: rgb(48, 46, 69); /* hpluv(270, 100, 20); */
+		--app-color-magenta-20: rgb(61, 41, 65); /* hpluv(300, 100, 20); */
+		--app-color-rose-20: rgb(68, 39, 57); /* hpluv(330, 100, 20); */
+
+		--app-color-30: rgb(71, 71, 71); /* hpluv(0, 0, 30); */
+		--app-color-red-30: rgb(99, 60, 68); /* hpluv(0, 100, 30); */
+		--app-color-orange-30: rgb(94, 63, 51); /* hpluv(30, 100, 30); */
+		--app-color-yellow-30: rgb(85, 68, 38); /* hpluv(60, 100, 30); */
+		--app-color-lime-30: rgb(70, 73, 34); /* hpluv(90, 100, 30); */
+		--app-color-green-30: rgb(52, 77, 43); /* hpluv(120, 100, 30); */
+		--app-color-turquoise-30: rgb(28, 80, 58); /* hpluv(150, 100, 30); */
+		--app-color-cyan-30: rgb(2, 80, 74); /* hpluv(180, 100, 30); */
+		--app-color-blue-30: rgb(16, 78, 87); /* hpluv(210, 100, 30); */
+		--app-color-violet-30: rgb(46, 73, 96); /* hpluv(240, 100, 30); */
+		--app-color-purple-30: rgb(71, 67, 98); /* hpluv(270, 100, 30); */
+		--app-color-magenta-30: rgb(88, 61, 93); /* hpluv(300, 100, 30); */
+		--app-color-rose-30: rgb(97, 58, 82); /* hpluv(330, 100, 30); */
+
+		--app-color-40: rgb(94, 94, 94); /* hpluv(0, 0, 40); */
+		--app-color-red-40: rgb(130, 80, 90); /* hpluv(0, 100, 40); */
+		--app-color-orange-40: rgb(124, 85, 69); /* hpluv(30, 100, 40); */
+		--app-color-yellow-40: rgb(112, 91, 52); /* hpluv(60, 100, 40); */
+		--app-color-lime-40: rgb(94, 98, 47); /* hpluv(90, 100, 40); */
+		--app-color-green-40: rgb(70, 103, 59); /* hpluv(120, 100, 40); */
+		--app-color-turquoise-40: rgb(40, 106, 78); /* hpluv(150, 100, 40); */
+		--app-color-cyan-40: rgb(3, 106, 98); /* hpluv(180, 100, 40); */
+		--app-color-blue-40: rgb(25, 104, 115); /* hpluv(210, 100, 40); */
+		--app-color-violet-40: rgb(63, 98, 126); /* hpluv(240, 100, 40); */
+		--app-color-purple-40: rgb(95, 90, 129); /* hpluv(270, 100, 40); */
+		--app-color-magenta-40: rgb(116, 82, 123); /* hpluv(300, 100, 40); */
+		--app-color-rose-40: rgb(128, 79, 109); /* hpluv(330, 100, 40); */
+
+		--app-color-50: rgb(119, 119, 119); /* hpluv(0, 0, 50); */
+		--app-color-red-50: rgb(163, 101, 114); /* hpluv(0, 100, 50); */
+		--app-color-orange-50: rgb(156, 108, 88); /* hpluv(30, 100, 50); */
+		--app-color-yellow-50: rgb(141, 115, 67); /* hpluv(60, 100, 50); */
+		--app-color-lime-50: rgb(119, 123, 61); /* hpluv(90, 100, 50); */
+		--app-color-green-50: rgb(90, 129, 75); /* hpluv(120, 100, 50); */
+		--app-color-turquoise-50: rgb(53, 133, 99); /* hpluv(150, 100, 50); */
+		--app-color-cyan-50: rgb(5, 134, 124); /* hpluv(180, 100, 50); */
+		--app-color-blue-50: rgb(33, 130, 145); /* hpluv(210, 100, 50); */
+		--app-color-violet-50: rgb(81, 123, 158); /* hpluv(240, 100, 50); */
+		--app-color-purple-50: rgb(119, 113, 162); /* hpluv(270, 100, 50); */
+		--app-color-magenta-50: rgb(146, 104, 155); /* hpluv(300, 100, 50); */
+		--app-color-rose-50: rgb(161, 100, 138); /* hpluv(330, 100, 50); */
+
+		--app-color-60: rgb(145, 145, 145); /* hpluv(0, 0, 60); */
+		--app-color-red-60: rgb(197, 124, 139); /* hpluv(0, 100, 60); */
+		--app-color-orange-60: rgb(189, 131, 108); /* hpluv(30, 100, 60); */
+		--app-color-yellow-60: rgb(171, 140, 83); /* hpluv(60, 100, 60); */
+		--app-color-lime-60: rgb(144, 150, 76); /* hpluv(90, 100, 60); */
+		--app-color-green-60: rgb(110, 157, 92); /* hpluv(120, 100, 60); */
+		--app-color-turquoise-60: rgb(65, 161, 121); /* hpluv(150, 100, 60); */
+		--app-color-cyan-60: rgb(7, 162, 150); /* hpluv(180, 100, 60); */
+		--app-color-blue-60: rgb(43, 158, 175); /* hpluv(210, 100, 60); */
+		--app-color-violet-60: rgb(99, 150, 192); /* hpluv(240, 100, 60); */
+		--app-color-purple-60: rgb(145, 138, 196); /* hpluv(270, 100, 60); */
+		--app-color-magenta-60: rgb(177, 127, 187); /* hpluv(300, 100, 60); */
+		--app-color-rose-60: rgb(194, 122, 167); /* hpluv(330, 100, 60); */
+
+		--app-color-70: rgb(171, 171, 171); /* hpluv(0, 0, 70); */
+		--app-color-red-70: rgb(233, 147, 164); /* hpluv(0, 100, 70); */
+		--app-color-orange-70: rgb(223, 155, 129); /* hpluv(30, 100, 70); */
+		--app-color-yellow-70: rgb(202, 166, 99); /* hpluv(60, 100, 70); */
+		--app-color-lime-70: rgb(171, 177, 91); /* hpluv(90, 100, 70); */
+		--app-color-green-70: rgb(130, 185, 110); /* hpluv(120, 100, 70); */
+		--app-color-turquoise-70: rgb(79, 191, 143); /* hpluv(150, 100, 70); */
+		--app-color-cyan-70: rgb(10, 192, 178); /* hpluv(180, 100, 70); */
+		--app-color-blue-70: rgb(52, 187, 207); /* hpluv(210, 100, 70); */
+		--app-color-violet-70: rgb(118, 177, 226); /* hpluv(240, 100, 70); */
+		--app-color-purple-70: rgb(172, 163, 231); /* hpluv(270, 100, 70); */
+		--app-color-magenta-70: rgb(209, 151, 221); /* hpluv(300, 100, 70); */
+		--app-color-rose-70: rgb(229, 144, 197); /* hpluv(330, 100, 70); */
+
+		--app-color-80: rgb(198, 198, 198); /* hpluv(0, 0, 80); */
+		--app-color-red-80: rgb(255, 178, 192); /* hpluv(0, 100, 80); */
+		--app-color-orange-80: rgb(246, 184, 162); /* hpluv(30, 100, 80); */
+		--app-color-yellow-80: rgb(226, 194, 139); /* hpluv(60, 100, 80); */
+		--app-color-lime-80: rgb(198, 204, 133); /* hpluv(90, 100, 80); */
+		--app-color-green-80: rgb(163, 211, 147); /* hpluv(120, 100, 80); */
+		--app-color-turquoise-80: rgb(126, 216, 174); /* hpluv(150, 100, 80); */
+		--app-color-cyan-80: rgb(103, 217, 204); /* hpluv(180, 100, 80); */
+		--app-color-blue-80: rgb(116, 212, 230); /* hpluv(210, 100, 80); */
+		--app-color-violet-80: rgb(156, 203, 247); /* hpluv(240, 100, 80); */
+		--app-color-purple-80: rgb(199, 192, 252); /* hpluv(270, 100, 80); */
+		--app-color-magenta-80: rgb(232, 181, 242); /* hpluv(300, 100, 80); */
+		--app-color-rose-80: rgb(251, 176, 221); /* hpluv(330, 100, 80); */
+
+		--app-color-90: rgb(226, 226, 226); /* hpluv(0, 0, 90); */
+		--app-color-red-90: rgb(255, 217, 224); /* hpluv(0, 100, 90); */
+		--app-color-orange-90: rgb(251, 220, 210); /* hpluv(30, 100, 90); */
+		--app-color-yellow-90: rgb(241, 224, 201); /* hpluv(60, 100, 90); */
+		--app-color-lime-90: rgb(226, 229, 199); /* hpluv(90, 100, 90); */
+		--app-color-green-90: rgb(210, 233, 204); /* hpluv(120, 100, 90); */
+		--app-color-turquoise-90: rgb(197, 235, 215); /* hpluv(150, 100, 90); */
+		--app-color-cyan-90: rgb(192, 235, 229); /* hpluv(180, 100, 90); */
+		--app-color-blue-90: rgb(196, 233, 241); /* hpluv(210, 100, 90); */
+		--app-color-violet-90: rgb(210, 229, 250); /* hpluv(240, 100, 90); */
+		--app-color-purple-90: rgb(227, 223, 252); /* hpluv(270, 100, 90); */
+		--app-color-magenta-90: rgb(242, 219, 247); /* hpluv(300, 100, 90); */
+		--app-color-rose-90: rgb(252, 217, 237); /* hpluv(330, 100, 90); */
+
+		--app-color-100: rgb(255, 255, 255); /* hpluv(0, 0, 100); */
+
+		--app-bgcolor-0: rgb(0 0 0);
+
+		--app-bgcolor-10: rgb(10, 11, 12);
+		--app-bgcolor-red-10: rgb(calc(1.2 * 10), 11, 12);
+		--app-bgcolor-orange-10: rgb(calc(1.2 * 10), calc(1.1 * 11), 12);
+		--app-bgcolor-yellow-10: rgb(calc(1.2 * 10), calc(1.2 * 11), 12);
+		--app-bgcolor-lime-10: rgb(calc(1.1 * 10), calc(1.2 * 11), 12);
+		--app-bgcolor-green-10: rgb(10, calc(1.2 * 11), 12);
+		--app-bgcolor-turquoise-10: rgb(10, calc(1.2 * 11), calc(1.1 * 12));
+		--app-bgcolor-cyan-10: rgb(10, calc(1.2 * 11), calc(1.2 * 12));
+		--app-bgcolor-blue-10: rgb(10, calc(1.1 * 11), calc(1.2 * 12));
+		--app-bgcolor-violet-10: rgb(10, 11, calc(1.2 * 12));
+		--app-bgcolor-purple-10: rgb(calc(1.1 * 10), 11, calc(1.2 * 12));
+		--app-bgcolor-magenta-10: rgb(calc(1.2 * 10), 11, calc(1.2 * 12));
+		--app-bgcolor-rose-10: rgb(calc(1.2 * 10), 11, calc(1.1 * 12));
+
+		--app-bgcolor-20: rgb(20, 22, 24);
+		--app-bgcolor-red-20: rgb(calc(1.2 * 20), 22, 24);
+		--app-bgcolor-orange-20: rgb(calc(1.2 * 20), calc(1.1 * 22), 24);
+		--app-bgcolor-yellow-20: rgb(calc(1.2 * 20), calc(1.2 * 22), 24);
+		--app-bgcolor-lime-20: rgb(calc(1.1 * 20), calc(1.2 * 22), 24);
+		--app-bgcolor-green-20: rgb(20, calc(1.2 * 22), 24);
+		--app-bgcolor-turquoise-20: rgb(20, calc(1.2 * 22), calc(1.1 * 24));
+		--app-bgcolor-cyan-20: rgb(20, calc(1.2 * 22), calc(1.2 * 24));
+		--app-bgcolor-blue-20: rgb(20, calc(1.1 * 22), calc(1.2 * 24));
+		--app-bgcolor-violet-20: rgb(20, 22, calc(1.2 * 24));
+		--app-bgcolor-purple-20: rgb(calc(1.1 * 20), 22, calc(1.2 * 24));
+		--app-bgcolor-magenta-20: rgb(calc(1.2 * 20), 22, calc(1.2 * 24));
+		--app-bgcolor-rose-20: rgb(calc(1.2 * 20), 22, calc(1.1 * 24));
+
+		--app-bgcolor-30: rgb(30, 33, 36);
+		--app-bgcolor-red-30: rgb(calc(1.2 * 30), 33, 36);
+		--app-bgcolor-orange-30: rgb(calc(1.2 * 30), calc(1.1 * 33), 36);
+		--app-bgcolor-yellow-30: rgb(calc(1.2 * 30), calc(1.2 * 33), 36);
+		--app-bgcolor-lime-30: rgb(calc(1.1 * 30), calc(1.2 * 33), 36);
+		--app-bgcolor-green-30: rgb(30, calc(1.2 * 33), 36);
+		--app-bgcolor-turquoise-30: rgb(30, calc(1.2 * 33), calc(1.1 * 36));
+		--app-bgcolor-cyan-30: rgb(30, calc(1.2 * 33), calc(1.2 * 36));
+		--app-bgcolor-blue-30: rgb(30, calc(1.1 * 33), calc(1.2 * 36));
+		--app-bgcolor-violet-30: rgb(30, 33, calc(1.2 * 36));
+		--app-bgcolor-purple-30: rgb(calc(1.1 * 30), 33, calc(1.2 * 36));
+		--app-bgcolor-magenta-30: rgb(calc(1.2 * 30), 33, calc(1.2 * 36));
+		--app-bgcolor-rose-30: rgb(calc(1.2 * 30), 33, calc(1.1 * 36));
+
+		--app-bgcolor-40: rgb(40, 44, 48);
+		--app-bgcolor-red-40: rgb(calc(1.2 * 40), 44, 48);
+		--app-bgcolor-orange-40: rgb(calc(1.2 * 40), calc(1.1 * 44), 48);
+		--app-bgcolor-yellow-40: rgb(calc(1.2 * 40), calc(1.2 * 44), 48);
+		--app-bgcolor-lime-40: rgb(calc(1.1 * 40), calc(1.2 * 44), 48);
+		--app-bgcolor-green-40: rgb(40, calc(1.2 * 44), 48);
+		--app-bgcolor-turquoise-40: rgb(40, calc(1.2 * 44), calc(1.1 * 48));
+		--app-bgcolor-cyan-40: rgb(40, calc(1.2 * 44), calc(1.2 * 48));
+		--app-bgcolor-blue-40: rgb(40, calc(1.1 * 44), calc(1.2 * 48));
+		--app-bgcolor-violet-40: rgb(40, 44, calc(1.2 * 48));
+		--app-bgcolor-purple-40: rgb(calc(1.1 * 40), 44, calc(1.2 * 48));
+		--app-bgcolor-magenta-40: rgb(calc(1.2 * 40), 44, calc(1.2 * 48));
+		--app-bgcolor-rose-40: rgb(calc(1.2 * 40), 44, calc(1.1 * 48));
+
+		--app-bgcolor-50: rgb(50, 55, 60);
+		--app-bgcolor-red-50: rgb(calc(1.2 * 50), 55, 60);
+		--app-bgcolor-orange-50: rgb(calc(1.2 * 50), calc(1.1 * 55), 60);
+		--app-bgcolor-yellow-50: rgb(calc(1.2 * 50), calc(1.2 * 55), 60);
+		--app-bgcolor-lime-50: rgb(calc(1.1 * 50), calc(1.2 * 55), 60);
+		--app-bgcolor-green-50: rgb(50, calc(1.2 * 55), 60);
+		--app-bgcolor-turquoise-50: rgb(50, calc(1.2 * 55), calc(1.1 * 60));
+		--app-bgcolor-cyan-50: rgb(50, calc(1.2 * 55), calc(1.2 * 60));
+		--app-bgcolor-blue-50: rgb(50, calc(1.1 * 55), calc(1.2 * 60));
+		--app-bgcolor-violet-50: rgb(50, 55, calc(1.2 * 60));
+		--app-bgcolor-purple-50: rgb(calc(1.1 * 50), 55, calc(1.2 * 60));
+		--app-bgcolor-magenta-50: rgb(calc(1.2 * 50), 55, calc(1.2 * 60));
+		--app-bgcolor-rose-50: rgb(calc(1.2 * 50), 55, calc(1.1 * 60));
+
+		--app-bgcolor-60: rgb(60, 66, 72);
+		--app-bgcolor-red-60: rgb(calc(1.2 * 60), 66, 72);
+		--app-bgcolor-orange-60: rgb(calc(1.2 * 60), calc(1.1 * 66), 72);
+		--app-bgcolor-yellow-60: rgb(calc(1.2 * 60), calc(1.2 * 66), 72);
+		--app-bgcolor-lime-60: rgb(calc(1.1 * 60), calc(1.2 * 66), 72);
+		--app-bgcolor-green-60: rgb(60, calc(1.2 * 66), 72);
+		--app-bgcolor-turquoise-60: rgb(60, calc(1.2 * 66), calc(1.1 * 72));
+		--app-bgcolor-cyan-60: rgb(60, calc(1.2 * 66), calc(1.2 * 72));
+		--app-bgcolor-blue-60: rgb(60, calc(1.1 * 66), calc(1.2 * 72));
+		--app-bgcolor-violet-60: rgb(60, 66, calc(1.2 * 72));
+		--app-bgcolor-purple-60: rgb(calc(1.1 * 60), 66, calc(1.2 * 72));
+		--app-bgcolor-magenta-60: rgb(calc(1.2 * 60), 66, calc(1.2 * 72));
+		--app-bgcolor-rose-60: rgb(calc(1.2 * 60), 66, calc(1.1 * 72));
+
+		--app-bgcolor-70: rgb(70, 77, 84);
+	}
+}

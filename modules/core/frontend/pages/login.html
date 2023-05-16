@@ -1,0 +1,23 @@
+<section>
+	<h1>Logowanie</h1>
+	<form method="post" action="/core/api/v0/login" id="core/login">
+		<form-row>
+			<form-column>
+				<div>
+					<span><label for="login"><span>Login</span> <small>Twoja ksywka w aplikacji</small></label></span>
+					<span><input name="login" type="text" pattern="(?:[\p{L}\p{N}]+(?:[_\-]?[\p{L}\p{N}]+)*){3,64}" minlength="3" maxlength="64" required></span>
+				</div>
+				<div>
+					<span><label for="password">Hasło <small>Nigdy go nikomu nie podawaj</small></label></span>
+					<span><input name="password" type="password" minlength="16" maxlength="128" required></span>
+				</div>
+			</form-column>
+		</form-row>
+		<form-row>
+			<form-column>
+				<button type="submit"><img class="icon" src="/core/frontend/icons/login.svg" width="24" height="24"> Zaloguj</button>
+			</form-column>
+		</form-row>
+		<output for="core/login" hidden></output>
+	</form>
+</section>

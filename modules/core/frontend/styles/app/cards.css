@@ -1,0 +1,74 @@
+@layer core_elements
+{
+	app-cards
+	{
+		/* Layout */
+		display: grid;
+
+		/* Size */
+		grid-template-columns: repeat(auto-fill, 160px);
+
+		/* Spacing */
+		margin: var(--app-margin);
+		padding: var(--app-margin) 0;
+		grid-gap: var(--app-margin);
+	}
+
+	app-card
+	{
+		/* Layout */
+		display: flex;
+
+		/* Direction */
+		flex-direction: column;
+
+		/* Spacing */
+		border-radius: 8px;
+		padding: var(--app-margin);
+		gap: var(--app-margin);
+
+		/* Appearance */
+		background-color: var(--app-bgcolor-40);
+	}
+
+	app-card:hover
+	{
+		/* Appearance */
+		box-shadow: 0 8px 16px rgb(0 0 0 / 20%);
+		transform: translateY(-8px);
+		cursor: pointer;
+	}
+
+	app-card:hover::after
+	{
+		/* Layout */
+		content: "";
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 100%;
+
+		/* Size */
+		height: 8px;
+	}
+
+	app-card-title
+	{
+		/* Text */
+		text-align: center;
+
+		/* Appearance */
+		color: var(--app-color-80);
+		user-select: none;
+	}
+
+	app-card > :is(img, svg).icon
+	{
+		/* Size */
+		width: auto;
+		height: auto;
+
+		/* Appearance */
+		background-color: var(--app-bgcolor-60);
+	}
+}

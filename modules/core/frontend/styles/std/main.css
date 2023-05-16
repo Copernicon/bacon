@@ -1,0 +1,71 @@
+@layer core_base
+{
+	main
+	{
+		/* Meta */
+		grid-area: main;
+
+		/* Layout */
+		display: flex;
+
+		/* Direction */
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
+
+		/* Overflow */
+		overflow: auto;
+
+		/* Appearance */
+		background-color: var(--app-bgcolor-30);
+		color: var(--app-color-70);
+	}
+
+	main::-webkit-scrollbar-track
+	{
+		/* Appearance */
+		background-color: var(--app-bgcolor-30);
+	}
+
+	main::-webkit-scrollbar-track-piece
+	{
+		/* Appearance */
+		background-color: var(--app-bgcolor-30);
+	}
+
+	main::-webkit-scrollbar-thumb
+	{
+		/* Appearance */
+		background-color: var(--app-bgcolor-50);
+	}
+
+	main::-webkit-scrollbar-thumb:hover
+	{
+		/* Appearance */
+		background-color: var(--app-bgcolor-70);
+	}
+
+	main::-webkit-scrollbar-corner
+	{
+		/* Appearance */
+		background-color: var(--app-bgcolor-30);
+	}
+
+	body:not([data-menu-visible]) > main > section
+	{
+		/* Size */
+		width: calc(100% - 2 * clamp(0px, calc((100vw - 360px) / ((720 - 360) / 22.5)), 16px));
+
+		/* Spacing */
+		margin: clamp(0px, calc((100vw - 360px) / ((720 - 360) / 22.5)), 16px);
+	}
+
+	body[data-menu-visible] > main > section
+	{
+		/* Size */
+		width: calc(100% - 2 * clamp(0px, calc((100vw - 720px) / ((1080 - 720) / 22.5)), 16px));
+
+		/* Spacing */
+		margin: clamp(0px, calc((100vw - 720px) / ((1080 - 720) / 22.5)), 16px);
+	}
+}

@@ -1,0 +1,137 @@
+@layer core_base
+{
+	body > header
+	{
+		/* Meta */
+		grid-area: header;
+
+		/* Layout */
+		display: flex;
+
+		/* Direction */
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: center;
+
+		/* Spacing */
+		gap: var(--app-margin);
+
+		/* Appearance */
+		background-color: var(--app-bgcolor-20);
+		color: var(--app-color-80);
+	}
+
+	body[data-menu-visible] > header
+	{
+		/* Spacing */
+		padding: 0 clamp(var(--app-margin), var(--app-margin) + calc((100vw - 720px) / ((1080 - 720) / 16)), 2 * var(--app-margin));
+	}
+
+	body:not([data-menu-visible]) > header
+	{
+		/* Spacing */
+		padding: 0 clamp(var(--app-margin), var(--app-margin) + calc((100vw - 360px) / ((720 - 360) / 16)), 2 * var(--app-margin));
+	}
+
+	body > header > button
+	{
+		/* Meta */
+		all: unset;
+		box-sizing: border-box;
+
+		/* Layout */
+		display: flex;
+
+		/* Size */
+		width: 48px;
+		height: 48px;
+		flex-shrink: 0;
+
+		/* Direction */
+		justify-content: center;
+		align-items: center;
+	}
+
+	body > header > button:hover
+	{
+		/* Appearance */
+		background-color: var(--app-bgcolor-40);
+		cursor: pointer;
+	}
+
+	body > header > button:focus
+	{
+		/* Appearance */
+		outline: 1px solid var(--app-color-100);
+		outline-offset: -1px;
+	}
+
+	body > header > button:is(#nav-user, #nav-project)
+	{
+		/* Size */
+		width: revert;
+
+		/* Spacing */
+		padding: 0 var(--app-margin);
+		gap: var(--app-margin);
+	}
+
+	body > header > button:is(#nav-user, #nav-project) > :is(img, svg)
+	{
+		/* Spacing */
+		margin: -4px;
+	}
+
+	@media screen and (max-width: 463px)
+	{
+		body:not([data-menu-visible]) > header > button#nav-project > span
+		{
+			/* Layout */
+			display: none;
+		}
+	}
+
+	@media screen and (max-width: 655px)
+	{
+		body:not([data-menu-visible]) > header > button#nav-user > span
+		{
+			/* Layout */
+			display: none;
+		}
+	}
+
+	@media screen and (max-width: 823px)
+	{
+		body[data-menu-visible] > header > button#nav-project > span
+		{
+			/* Layout */
+			display: none;
+		}
+	}
+
+	@media screen and (max-width: 1015px)
+	{
+		body[data-menu-visible] > header > button#nav-user > span
+		{
+			/* Layout */
+			display: none;
+		}
+	}
+
+	body > header > button > span
+	{
+		/* Layout */
+		display: inline;
+
+		/* Size */
+		max-width: 240px;
+
+		/* Overflow */
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+
+		/* Appearance */
+		user-select: none;
+	}
+}

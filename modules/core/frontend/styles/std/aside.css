@@ -1,0 +1,55 @@
+@layer core_base
+{
+	body > aside
+	{
+		/* Area */
+		grid-area: aside;
+
+		/* Layout */
+		display: flex;
+
+		/* Direction */
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: center;
+
+		/* Spacing */
+		padding: 0 clamp(2 * var(--app-margin), 2 * var(--app-margin) + calc((100vw - 720px) / ((1080 - 720) / 16)), 3 * var(--app-margin));
+		gap: var(--app-margin);
+
+		/* Appearance */
+		background-color: var(--app-bgcolor-10);
+		color: var(--app-color-70);
+	}
+
+	body > aside > app-icon
+	{
+		/* Layout */
+		display: inline;
+
+		/* Size */
+		width: 24px;
+		height: 24px;
+		flex-shrink: 0;
+
+		/* Overflow */
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+
+	body > aside > app-name
+	{
+		/* Layout */
+		display: inline;
+
+		/* Size */
+		max-width: calc(100% - 2 * var(--app-margin));
+		flex-shrink: 0;
+
+		/* Overflow */
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+}

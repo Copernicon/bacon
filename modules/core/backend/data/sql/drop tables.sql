@@ -1,0 +1,13 @@
+DROP TABLE IF EXISTS `activations`;
+DROP TABLE IF EXISTS `logs`;
+DROP TABLE IF EXISTS `permissions`;
+DROP TABLE IF EXISTS `projects`;
+DROP TABLE IF EXISTS `roles`;
+DROP TABLE IF EXISTS `roles_permissions`;
+DROP TABLE IF EXISTS `roles_roles`;
+DROP TABLE IF EXISTS `sessions`;
+DROP TABLE IF EXISTS `test`;
+DROP TABLE IF EXISTS `users`;
+DROP TABLE IF EXISTS `users_permissions`;
+DROP TABLE IF EXISTS `users_projects`;
+DROP TABLE IF EXISTS `users_roles`;

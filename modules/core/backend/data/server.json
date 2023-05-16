@@ -1,0 +1,43 @@
+{
+	"http": {
+		"enabled": true,
+		"host": "localhost",
+		"port": 2137,
+		"redirectToHTTPS": true
+	},
+	"https": {
+		"enabled": true,
+		"host": "localhost",
+		"port": 2137,
+		"cert": "/core/backend/data/pem/cert.pem",
+		"key": "/core/backend/data/pem/key.pem"
+	},
+	"extensions": {
+		"json": "application/json",
+		"css": "text/css; charset=utf-8",
+		"html": "text/html; charset=utf-8",
+		"mjs": "text/javascript; charset=utf-8",
+		"js": "text/javascript; charset=utf-8",
+		"apng": "image/apng",
+		"avif": "image/avif",
+		"gif": "image/gif",
+		"jpg": "image/jpeg",
+		"ico": "image/x-icon",
+		"png": "image/png",
+		"svg": "image/svg+xml",
+		"webp": "image/webp",
+		"ttf": "font/ttf"
+	},
+	"maxUploadSize": 16,
+	"uploadImgExtensions": {
+		"apng": "image/apng",
+		"avif": "image/avif",
+		"gif": "image/gif",
+		"jpg": "image/jpeg",
+		"ico": "image/x-icon",
+		"png": "image/png",
+		"svg": "image/svg+xml",
+		"webp": "image/webp"
+	},
+	"tokenSize": 128
+}

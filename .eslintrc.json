@@ -1,0 +1,396 @@
+{
+	"env":
+	{
+		"es6": true,
+		"node": true,
+		"browser": true
+	},
+	"extends": "eslint:recommended",
+	"parser": "@babel/eslint-parser",
+	"parserOptions":
+	{
+		"babelOptions":
+		{
+			// FIX https://github.com/eslint/eslint/discussions/15305
+			"plugins": ["@babel/plugin-syntax-import-assertions"]
+		},
+		"ecmaVersion": "latest",
+		"requireConfigFile": false,
+		"sourceType": "module"
+	},
+	"root": true,
+	"ignorePatterns": ["package-lock.json", "node_modules", "uploads", "**/ext"],
+	"rules":
+	{
+		// Possible Problems
+		// ※ https://eslint.org/docs/latest/rules/#possible-problems
+
+			// Recommended, but disabled
+
+				// Disallow using an async function as a Promise executor
+				// reason(correctness): allow awaiting inside Promises
+				"no-async-promise-executor": "off",
+
+				// Disallow reassigning class members
+				// reason(readability): allow shadowing
+				"no-class-assign": "off",
+
+				// Disallow empty destructuring patterns
+				// reason(readability): allow ia skipping function arguments
+				"no-empty-pattern": "off",
+
+				// Disallow fallthrough of case statements
+				// reason(efficiency): allow fallthrough
+				"no-fallthrough": "off",
+
+				// Disallow reassigning function declarations
+				// reason(readability): allow shadowing
+				"no-func-assign": "off",
+
+				// Disallow confusing multiline expressions
+				// reason(readability): allow ia space between function name and `(`
+				"no-unexpected-multiline": "off",
+
+			// Not recommended, but enabled
+
+				// Enforce return statements in callbacks of array methods
+				// reason(correctness): prevent a likely mistake
+				"array-callback-return": "warn",
+
+				// Disallow expressions where the operation doesn't affect the value
+				// reason(correctness): prevent unnecessary code
+				"no-constant-binary-expression": "warn",
+
+				// Disallow returning value from constructor
+				// reason(correctness): prevent unnecessary code
+				"no-constructor-return": "warn",
+
+				// Disallow duplicate module imports
+				// reason(readability): minimize number of imports
+				"no-duplicate-imports": "warn",
+
+				// Disallow new operators with global non-constructor functions
+				// reason(correctness): prevent throwing a TypeError
+				"no-new-native-nonconstructor": "error",
+
+				// Disallow returning values from Promise executor functions
+				// reason(correctness): prevent unnecessary code
+				"no-promise-executor-return": "warn",
+
+				// Disallow comparisons where both sides are exactly the same
+				// reason(correctness): prevent unnecessary code
+				"no-self-compare": "warn",
+
+				// Disallow template literal placeholder syntax in regular strings
+				// reason(correctness): prevent a likely mistake
+				"no-template-curly-in-string": "warn",
+
+				// Disallow unmodified loop conditions
+				// reason(correctness): prevent a likely mistake
+				"no-unmodified-loop-condition": "warn",
+
+				// Disallow loops with a body that allows only one iteration
+				// reason(correctness): prevent a likely mistake
+				"no-unreachable-loop": "warn",
+
+				// Disallow unused private class members
+				// reason(readability): minimize number of members
+				"no-unused-private-class-members": "warn",
+
+		// Suggestions
+		// ※ https://eslint.org/docs/latest/rules/#suggestions
+
+			// Recommended, but disabled
+
+				// Disallow empty block statements
+				// reason(correctness): allow ia empty Promise catch
+				"no-empty": "off",
+
+				// Disallow lexical declarations in case clauses
+				// reason(readability): don't require `if else` spam
+				"no-case-declarations": "off",
+
+			// Not recommended, but enabled
+
+				// Enforce the use of variables within the scope they are defined
+				// reason(correctness): prevent throwing a ReferenceError
+				"block-scoped-var": "error",
+
+				// Require return statements to either always or never specify values
+				// reason(correctness): prevent a likely mistake
+				"consistent-return": "warn",
+
+				// Enforce default parameters to be last
+				// reason(correctness): prevent a likely mistake
+				"default-param-last": "warn",
+
+				// Enforce dot notation whenever possible
+				// reason(readability): minimize square-bracket notation
+				"dot-notation": "warn",
+
+				// Require for-in loops to include an if statement
+				// reason(correctness): prevent unexpected behavior
+				"guard-for-in": "error",
+
+				// Enforce a maximum depth that callbacks can be nested
+				// reason(readability): minimize nesting
+				"max-nested-callbacks": ["warn", 3],
+
+				// Disallow else blocks after return statements in if statements
+				// reason(readability): minimize nesting
+				"no-else-return": "warn",
+
+				// Disallow empty static blocks
+				// reason(readability): prevent unnecessary code
+				"no-empty-static-block": "warn",
+
+				// Disallow null comparisons without type-checking operators
+				// reason(correctness): prevent a likely mistake
+				"no-eq-null": "error",
+
+				// Disallow extending native types
+				// reason(correctness): prevent unexpected behavior
+				"no-extend-native": "warn",
+
+				// Disallow unnecessary labels
+				// reason(readability): prevent unnecessary code
+				"no-extra-label": "warn",
+
+				// Disallow unnecessary labels
+				// reason(readability): prevent unnecessary code
+				"no-extra-semi": "warn",
+
+				// Disallow shorthand type conversions
+				// reason(readability): prevent hard to read code
+				"no-implicit-coercion": "warn",
+
+				// Disallow declarations in the global scope
+				// reason(scalability): prevent name collisions
+				"no-implicit-globals": "warn",
+
+				// Disallow use of this in contexts where the value of this is undefined
+				// reason(correctness): prevent throwing a TypeError
+				"no-invalid-this": "error",
+
+				// Disallow if statements as the only statement in else blocks
+				// reason(readability): prevent unnecessary code
+				"no-lonely-if": "warn",
+
+				// Disallow negated conditions
+				// reason(readability): prevent hard to read code
+				"no-negated-condition": "warn",
+
+				// Disallow nested ternary expressions
+				// reason(readability): prevent hard to read code
+				"no-nested-ternary": "warn",
+
+				// Disallow new operators outside of assignments or comparisons
+				// reason(correctness): prevent loosing a reference
+				"no-new": "warn",
+
+				// Disallow new operators with the Function object
+				// reason(readability): prevent unnecessary code
+				"no-new-func": "warn",
+
+				// Disallow Object constructors
+				// reason(readability): prevent unnecessary code
+				"no-new-object": "warn",
+
+				// Disallow new operators with the String, Number, and Boolean objects
+				// reason(readability): prevent unnecessary code
+				"no-new-wrappers": "warn",
+
+				// Disallow initializing variables to undefined
+				// reason(readability): prevent unnecessary code
+				"no-undef-init": "warn",
+
+				// Disallow dangling underscores in identifiers
+				// reason(readability): prevent hard to read code
+				"no-underscore-dangle": "warn",
+
+				// Disallow ternary operators when simpler alternatives exist
+				// reason(readability): prevent unnecessary code
+				"no-unneeded-ternary": "warn",
+
+				// Disallow unused expressions
+				// reason(readability): prevent unnecessary code
+				"no-unused-expressions": "warn",
+
+				// Disallow unnecessary calls to .call() and .apply()
+				// reason(readability): prevent unnecessary code
+				"no-useless-call": "warn",
+
+				// Disallow unnecessary computed property keys in objects and classes
+				// reason(readability): prevent unnecessary code
+				"no-useless-computed-key": "warn",
+
+				// Disallow unnecessary concatenation of literals or template literals
+				// reason(readability): prevent unnecessary code
+				"no-useless-concat": "warn",
+
+				// Disallow unnecessary constructors
+				// reason(readability): prevent unnecessary code
+				"no-useless-constructor": "warn",
+
+				// Disallow renaming import, export, and destructured assignments to the same name
+				// reason(readability): prevent unnecessary code
+				"no-useless-rename": "warn",
+
+				// Disallow redundant return statements
+				// reason(readability): prevent unnecessary code
+				"no-useless-return": "warn",
+
+				// Require let or const instead of var
+				// reason(readability): prevent unexpected behavior
+				"no-var": "warn",
+
+				// Require assignment operator shorthand where possible
+				// reason(readability): prevent unnecessary code
+				"operator-assignment": "warn",
+
+				// Require using arrow functions for callbacks
+				// reason(readability): prevent unnecessary code
+				"prefer-arrow-callback": "warn",
+
+				// Require const declarations for variables that are never reassigned after declared
+				// reason(correctness): prevent a likely mistake
+				"prefer-const": "warn",
+
+				// Disallow the use of Math.pow in favor of the ** operator
+				// reason(readability): prevent unnecessary code
+				"prefer-exponentiation-operator": "warn",
+
+				// Disallow parseInt() and Number.parseInt() in favor of binary, octal, and hexadecimal literals
+				// reason(readability): prevent unnecessary code
+				"prefer-numeric-literals": "warn",
+
+				// Disallow use of Object.prototype.hasOwnProperty.call() and prefer use of Object.hasOwn()
+				// reason(readability): prevent unnecessary code
+				"prefer-object-has-own": "warn",
+
+				// Disallow using Object.assign with an object literal as the first argument and prefer the use of object spread instead
+				// reason(readability): prevent unnecessary code
+				"prefer-object-spread": "warn",
+
+				// Require rest parameters instead of arguments
+				// reason(readability): prevent unnecessary code
+				"prefer-rest-params": "warn",
+
+				// Require spread operators instead of .apply()
+				// reason(readability): prevent unnecessary code
+				"prefer-spread": "warn",
+
+				// Disallow async functions which have no await expression
+				// reason(correctness): prevent a likely mistake
+				"require-await": "warn",
+
+				// Enforce the use of u flag on RegExp
+				// reason(correctness): prevent a likely mistake
+				"require-unicode-regexp": "warn",
+
+				// Disallow "Yoda" conditions
+				// reason(readability): prevent less natural order of comparisons
+				"yoda": "warn",
+
+		// Layout & Formatting
+		// ※ https://eslint.org/docs/latest/rules/#layout--formatting
+
+			// Not recommended, but enabled
+
+				// Enforce consistent spacing before and after the arrow in arrow functions
+				// reason(readability): follow common punctuation rules
+				"arrow-spacing": "warn",
+
+				// Enforce consistent spacing before and after commas
+				// reason(readability): follow common punctuation rules
+				"comma-spacing": "warn",
+
+				// Require or disallow newline at the end of files
+				// reason(readability): prevent unnecessary code
+				"eol-last": ["warn", "never"],
+
+				// Enforce consistent spacing between keys and values in object literal properties
+				// reason(readability): follow common punctuation rules
+				"key-spacing": "warn",
+
+				// Enforce consistent spacing before and after keywords
+				// reason(readability): follow common punctuation rules
+				"keyword-spacing": "warn",
+
+				// Enforce consistent linebreak style
+				// reason(readability): prevent unnecessary code
+				"linebreak-style": "warn",
+
+				// Enforce a maximum line length
+				// reason(convention)
+				"max-len": ["warn", {
+					"code": 160,
+					"ignoreComments": false,
+					"ignoreTrailingComments": false,
+					"ignoreUrls": false,
+					"ignoreStrings": false,
+					"ignoreTemplateLiterals": false,
+					"ignoreRegExpLiterals": false
+				}],
+
+				// Disallow multiple spaces
+				// reason(readability): follow common punctuation rules
+				"no-multi-spaces": "warn",
+
+				// Disallow multiple empty lines
+				// reason(readability): prevent unnecessary code
+				"no-multiple-empty-lines": ["warn", { "max": 1, "maxEOF": 0, "maxBOF": 0 }],
+
+				// Disallow trailing whitespace at the end of lines
+				// reason(readability): prevent unnecessary code
+				"no-trailing-spaces": "warn",
+
+				// Disallow whitespace before properties
+				// reason(readability): follow common punctuation rules
+				"no-whitespace-before-property": "warn",
+
+				// Enforce the location of single-line statements
+				// reason(readability): indent conditionals
+				"nonblock-statement-body-position": ["warn", "below"],
+
+				// Disallow padding within blocks
+				// reason(readability): prevent unnecessary code
+				"padded-blocks": ["warn", "never"],
+
+				// Enforce the consistent use of either backticks, double, or single quotes
+				// reason(convention)
+				"quotes": ["warn", "single"],
+
+				// Require semicolons instead of ASI
+				// reason(correctness): prevent a likely mistake
+				"semi": "warn",
+
+				// Enforce consistent spacing before and after semicolons
+				// reason(readability): follow common punctuation rules
+				"semi-spacing": "warn",
+
+				// Enforce location of semicolons
+				// reason(readability): follow common punctuation rules
+				"semi-style": "warn",
+
+				// Enforce consistent spacing before blocks
+				// reason(readability): follow common punctuation rules
+				"space-before-blocks": "warn",
+
+				// Enforce consistent spacing inside parentheses
+				// reason(readability): follow common punctuation rules
+				"space-in-parens": "warn",
+
+				// Require spacing around infix operators
+				// reason(readability): prevent hard to read code
+				"space-infix-ops": "warn",
+
+				// Enforce spacing around colons of switch statements
+				// reason(readability): follow common punctuation rules
+				"switch-colon-spacing": "warn",
+
+				// Require or disallow Unicode byte order mark (BOM)
+				// reason(correctness): prevent redundant code
+				"unicode-bom": "error"
+	}
+}

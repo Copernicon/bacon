@@ -1,0 +1,206 @@
+@layer core_elements
+{
+	app-person
+	{
+		/* Layout */
+		display: inline-flex;
+
+		/* Direction */
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		vertical-align: middle;
+
+		/* Size */
+		max-width: 300px;
+
+		/* Spacing */
+		margin: 0 calc(.125 * var(--app-margin));
+		border: 1px solid transparent;
+		padding: calc(.125 * var(--app-margin)) calc(.5 * var(--app-margin));
+		gap: calc(.5 * var(--app-margin));
+
+		/* Appearance */
+		background-color: var(--app-bgcolor-20);
+		color: var(--app-color-80);
+	}
+
+	app-person > span
+	{
+		/* Layout */
+		display: inline;
+
+		/* Overflow */
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+
+	app-person:not(.inv).red
+	{
+		/* Appearance */
+		background-color: var(--app-color-red-20);
+		color: var(--app-color-red-80);
+	}
+
+	app-person:not(.inv).orange
+	{
+		/* Appearance */
+		background-color: var(--app-color-orange-20);
+		color: var(--app-color-orange-80);
+	}
+
+	app-person:not(.inv).yellow
+	{
+		/* Appearance */
+		background-color: var(--app-color-yellow-20);
+		color: var(--app-color-yellow-80);
+	}
+
+	app-person:not(.inv).lime
+	{
+		/* Appearance */
+		background-color: var(--app-color-lime-20);
+		color: var(--app-color-lime-80);
+	}
+
+	app-person:not(.inv).green
+	{
+		/* Appearance */
+		background-color: var(--app-color-green-20);
+		color: var(--app-color-green-80);
+	}
+
+	app-person:not(.inv).turquoise
+	{
+		/* Appearance */
+		background-color: var(--app-color-turquoise-20);
+		color: var(--app-color-turquoise-80);
+	}
+
+	app-person:not(.inv).cyan
+	{
+		/* Appearance */
+		background-color: var(--app-color-cyan-20);
+		color: var(--app-color-cyan-80);
+	}
+
+	app-person:not(.inv).blue
+	{
+		/* Appearance */
+		background-color: var(--app-color-blue-20);
+		color: var(--app-color-blue-80);
+	}
+
+	app-person:not(.inv).violet
+	{
+		/* Appearance */
+		background-color: var(--app-color-violet-20);
+		color: var(--app-color-violet-80);
+	}
+
+	app-person:not(.inv).purple
+	{
+		/* Appearance */
+		background-color: var(--app-color-purple-20);
+		color: var(--app-color-purple-80);
+	}
+
+	app-person:not(.inv).magenta
+	{
+		/* Appearance */
+		background-color: var(--app-color-magenta-20);
+		color: var(--app-color-magenta-80);
+	}
+
+	app-person:not(.inv).rose
+	{
+		/* Appearance */
+		background-color: var(--app-color-rose-20);
+		color: var(--app-color-rose-80);
+	}
+
+	app-person.inv.red
+	{
+		/* Appearance */
+		background-color: var(--app-color-red-80);
+		color: var(--app-color-red-20);
+	}
+
+	app-person.inv.orange
+	{
+		/* Appearance */
+		background-color: var(--app-color-orange-80);
+		color: var(--app-color-orange-20);
+	}
+
+	app-person.inv.yellow
+	{
+		/* Appearance */
+		background-color: var(--app-color-yellow-80);
+		color: var(--app-color-yellow-20);
+	}
+
+	app-person.inv.lime
+	{
+		/* Appearance */
+		background-color: var(--app-color-lime-80);
+		color: var(--app-color-lime-20);
+	}
+
+	app-person.inv.green
+	{
+		/* Appearance */
+		background-color: var(--app-color-green-80);
+		color: var(--app-color-green-20);
+	}
+
+	app-person.inv.turquoise
+	{
+		/* Appearance */
+		background-color: var(--app-color-turquoise-80);
+		color: var(--app-color-turquoise-20);
+	}
+
+	app-person.inv.cyan
+	{
+		/* Appearance */
+		background-color: var(--app-color-cyan-80);
+		color: var(--app-color-cyan-20);
+	}
+
+	app-person.inv.blue
+	{
+		/* Appearance */
+		background-color: var(--app-color-blue-80);
+		color: var(--app-color-blue-20);
+	}
+
+	app-person.inv.violet
+	{
+		/* Appearance */
+		background-color: var(--app-color-violet-80);
+		color: var(--app-color-violet-20);
+	}
+
+	app-person.inv.purple
+	{
+		/* Appearance */
+		background-color: var(--app-color-purple-80);
+		color: var(--app-color-purple-20);
+	}
+
+	app-person.inv.magenta
+	{
+		/* Appearance */
+		background-color: var(--app-color-magenta-80);
+		color: var(--app-color-magenta-20);
+	}
+
+	app-person.inv.rose
+	{
+		/* Appearance */
+		background-color: var(--app-color-rose-80);
+		color: var(--app-color-rose-20);
+	}
+}

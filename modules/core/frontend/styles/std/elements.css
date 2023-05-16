@@ -1,0 +1,89 @@
+@layer core_base
+{
+	a
+	{
+		/* Appearance */
+		color: var(--app-color-blue-70);
+		text-decoration: none;
+	}
+
+	div
+	{
+		/* Layout */
+		display: flex;
+
+		/* Direction */
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+
+		/* Spacing */
+		gap: var(--app-margin);
+	}
+
+	mark
+	{
+		/* Meta */
+		all: unset;
+		box-sizing: border-box;
+
+		/* Spacing */
+		margin: 0 calc(.125 * var(--app-margin));
+		padding: calc(.125 * var(--app-margin)) calc(.5 * var(--app-margin));
+
+		/* Appearance */
+		background-color: var(--app-color-yellow-70);
+		color: var(--app-color-yellow-10);
+	}
+
+	p
+	{
+		/* Spacing */
+		margin: var(--app-margin);
+
+		/* Text */
+		font-size: 16px;
+		font-weight: 400;
+
+		/* Appearance */
+		color: var(--app-color-70);
+	}
+
+	small
+	{
+		/* Meta */
+		all: unset;
+		box-sizing: border-box;
+
+		/* Appearance */
+		color: var(--app-color-60);
+	}
+
+	span
+	{
+		/* Layout */
+		display: flex;
+
+		/* Direction */
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: center;
+
+		/* Spacing */
+		gap: var(--app-margin);
+	}
+
+	var
+	{
+		/* Meta */
+		all: unset;
+		box-sizing: border-box;
+
+		/* Spacing */
+		padding: calc(.125 * var(--app-margin)) calc(.5 * var(--app-margin));
+
+		/* Appearance */
+		background-color: var(--app-color-70);
+		color: var(--app-color-10);
+	}
+}

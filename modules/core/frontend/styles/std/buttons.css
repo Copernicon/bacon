@@ -1,0 +1,127 @@
+@layer core_base
+{
+	main button
+	{
+		/* Meta */
+		all: unset;
+		box-sizing: border-box;
+
+		/* Layout */
+		display: inline-flex;
+
+		/* Direction */
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+
+		/* Spacing */
+		border: 1px solid transparent;
+		border-radius: var(--app-radius);
+		padding: calc(.5 * var(--app-margin)) var(--app-margin);
+		gap: calc(.5 * var(--app-margin));
+
+		/* Appearance */
+		background-color: var(--app-bgcolor-20);
+		color: var(--app-color-80);
+		user-select: none;
+	}
+
+	main button:hover
+	{
+		/* Spacing */
+		border-color: initial;
+
+		/* Appearance */
+		cursor: pointer;
+	}
+
+	main button:focus
+	{
+		/* Appearance */
+		outline: 1px solid;
+	}
+
+	main button.red
+	{
+		/* Appearance */
+		background-color: var(--app-color-red-20);
+		color: var(--app-color-red-80);
+	}
+
+	main button.orange
+	{
+		/* Appearance */
+		background-color: var(--app-color-orange-20);
+		color: var(--app-color-orange-80);
+	}
+
+	main button.yellow
+	{
+		/* Appearance */
+		background-color: var(--app-color-yellow-20);
+		color: var(--app-color-yellow-80);
+	}
+
+	main button.lime
+	{
+		/* Appearance */
+		background-color: var(--app-color-lime-20);
+		color: var(--app-color-lime-80);
+	}
+
+	main button.green
+	{
+		/* Appearance */
+		background-color: var(--app-color-green-20);
+		color: var(--app-color-green-80);
+	}
+
+	main button.turquoise
+	{
+		/* Appearance */
+		background-color: var(--app-color-turquoise-20);
+		color: var(--app-color-turquoise-80);
+	}
+
+	main button.cyan
+	{
+		/* Appearance */
+		background-color: var(--app-color-cyan-20);
+		color: var(--app-color-cyan-80);
+	}
+
+	main button.blue
+	{
+		/* Appearance */
+		background-color: var(--app-color-blue-20);
+		color: var(--app-color-blue-80);
+	}
+
+	main button.violet
+	{
+		/* Appearance */
+		background-color: var(--app-color-violet-20);
+		color: var(--app-color-violet-80);
+	}
+
+	main button.purple
+	{
+		/* Appearance */
+		background-color: var(--app-color-purple-20);
+		color: var(--app-color-purple-80);
+	}
+
+	main button.magenta
+	{
+		/* Appearance */
+		background-color: var(--app-color-magenta-20);
+		color: var(--app-color-magenta-80);
+	}
+
+	main button.rose
+	{
+		/* Appearance */
+		background-color: var(--app-color-rose-20);
+		color: var(--app-color-rose-80);
+	}
+}

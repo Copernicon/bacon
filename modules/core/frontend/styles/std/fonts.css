@@ -1,0 +1,20 @@
+@layer core_base
+{
+	@font-face
+	{
+		/* Meta */
+		src: url(/core/frontend/fonts/OpenSans.ttf) format('truetype');
+
+		/* Text */
+		font-family: 'Open Sans';
+	}
+
+	@font-face
+	{
+		/* Meta */
+		src: url(/core/frontend/fonts/NotoSansMono.ttf) format('truetype');
+
+		/* Text */
+		font-family: 'Noto Sans Mono';
+	}
+}

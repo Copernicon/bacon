@@ -1,0 +1,189 @@
+@layer core_base, mods_base, core_elements, mods_elements, core_utils, mods_utils, core_overrides, mods_overrides;
+
+@layer core_base
+{
+	:root
+	{
+		/* Meta */
+		box-sizing: border-box;
+
+		/* Overflow */
+		overflow: hidden;
+
+		/* Text */
+		font-family: 'Open Sans', sans-serif;
+		font-size: var(--app-font-size);
+		line-height: 1.5;
+
+		/* Appearance */
+		color-scheme: dark;
+		cursor: default;
+	}
+
+	::selection
+	{
+		/* Appearance */
+		background-color: var(--app-color-70);
+		color: var(--app-color-10);
+	}
+
+	::-webkit-scrollbar
+	{
+		/* Size */
+		width: var(--app-scrollbar-size);
+		height: var(--app-scrollbar-size);
+	}
+
+	::-webkit-scrollbar-button
+	{
+		/* Layout */
+		display: none;
+	}
+
+	*,
+	*::before,
+	*::after
+	{
+		/* Meta */
+		box-sizing: inherit;
+	}
+
+	body
+	{
+		/* Meta */
+		grid-template-areas: "aside header" "nav main";
+
+		/* Layout */
+		display: grid;
+
+		/* Size */
+		height: 100vh;
+		grid-template-rows: 48px auto;
+
+		/* Spacing */
+		margin: 0;
+
+		/* Appearance */
+		background-color: var(--app-bgcolor-20);
+		color: var(--app-color-80);
+		transition: grid-template-columns .5s, grid-template-rows .5s;
+	}
+
+	@media screen and (max-width: 359px)
+	{
+		body
+		{
+			/* Layout */
+			visibility: hidden;
+		}
+
+		body::before
+		{
+			/* Layout */
+			content: "Za mała szerokość ekranu.""\A""Apka wymaga minimum 360px.";
+			display: flex;
+			position: fixed;
+			visibility: visible;
+
+			/* Size */
+			width: 100vw;
+			height: 100vh;
+
+			/* Direction */
+			justify-content: center;
+			align-items: center;
+
+			/* Overflow */
+			white-space: pre-wrap;
+
+			/* Text */
+			font-size: 10px;
+			text-align: center;
+
+			/* Appearance */
+			background-color: var(--app-color-red-10);
+			color: var(--app-color-red-70);
+		}
+	}
+
+	@media screen and (min-width: 360px)
+	{
+		body[data-menu-visible]
+		{
+			/* Size */
+			grid-template-columns: clamp(328px, 328px + calc((100vw - 720px) / ((1080 - 720) / 32)), 360px) auto;
+		}
+
+		body:not([data-menu-visible])
+		{
+			/* Size */
+			grid-template-columns: 0 auto;
+		}
+	}
+
+	@media screen and (max-width: 719px)
+	{
+		body[data-menu-visible]
+		{
+			/* Size */
+			grid-template-rows: 0 auto;
+
+			/* Appearance */
+			background: repeating-linear-gradient(
+				135deg,
+				var(--app-bgcolor-20),
+				var(--app-bgcolor-20) 24px,
+				transparent 24px,
+				transparent 48px
+			), repeating-linear-gradient(
+				135deg,
+				var(--app-bgcolor-10),
+				var(--app-bgcolor-10) 24px,
+				var(--app-bgcolor-20) 24px,
+				var(--app-bgcolor-20) 96px
+			);
+
+			background-blend-mode: screen;
+		}
+
+		body[data-menu-visible] > :is(aside, header, main)
+		{
+			/* Layout */
+			display: none;
+		}
+
+		body[data-menu-visible] > nav
+		{
+			/* Size */
+			max-width: 360px;
+			height: 100%;
+		}
+
+		body > nav > menu-group[data-name="menu"] > menu-entry
+		{
+			/* Appearance */
+			background-color: var(--app-bgcolor-30);
+		}
+
+		body > nav > menu-group[data-name="menu"] > menu-entry:hover
+		{
+			/* Appearance */
+			background-color: var(--app-bgcolor-40);
+		}
+	}
+
+	@media screen and (min-width: 720px)
+	{
+		body > nav
+		{
+			/* Spacing */
+			padding-top: var(--app-margin);
+		}
+
+		body > nav > menu-group[data-name="menu"]
+		{
+			/* Layout */
+			display: none;
+		}
+	}
+}

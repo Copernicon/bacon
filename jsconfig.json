@@ -1,0 +1,36 @@
+{
+	// ※ https://www.typescriptlang.org/tsconfig#exclude
+	"exclude": ["package-lock.json", "node_modules", "uploads", "**/ext"],
+
+	// ※ https://www.typescriptlang.org/tsconfig#compilerOptions
+	"compilerOptions":
+	{
+		// Type Checking
+		"exactOptionalPropertyTypes": true,
+		"noImplicitAny": true,
+		"noImplicitReturns": true,
+		"noImplicitThis": true,
+		"noUncheckedIndexedAccess": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"strict": true,
+
+		// Modules
+		"baseUrl": ".",
+		"module": "esnext",
+		"moduleResolution": "node",
+		"paths":
+		{
+			"^/*": ["./*"],
+			"*": ["./modules/*"],
+		},
+		"resolveJsonModule": true,
+		"rootDir": ".",
+
+		// JavaScript Support
+		"checkJs": true,
+
+		// Language and Environment
+		"target": "esnext",
+	}
+}

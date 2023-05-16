@@ -1,0 +1,80 @@
+@layer core_base
+{
+	h1
+	{
+		/* Spacing */
+		margin: var(--app-margin);
+
+		/* Text */
+		font-size: 20px;
+		font-weight: 600;
+
+		/* Appearance */
+		color: var(--app-color-90);
+	}
+
+	h2
+	{
+		/* Spacing */
+		margin: var(--app-margin);
+
+		/* Text */
+		font-size: 20px;
+		font-weight: 560;
+
+		/* Appearance */
+		color: var(--app-color-90);
+	}
+
+	h3
+	{
+		/* Spacing */
+		margin: var(--app-margin);
+
+		/* Text */
+		font-size: 20px;
+		font-weight: 520;
+
+		/* Appearance */
+		color: var(--app-color-90);
+	}
+
+	h4
+	{
+		/* Spacing */
+		margin: var(--app-margin);
+
+		/* Text */
+		font-size: 20px;
+		font-weight: 480;
+
+		/* Appearance */
+		color: var(--app-color-90);
+	}
+
+	h5
+	{
+		/* Spacing */
+		margin: var(--app-margin);
+
+		/* Text */
+		font-size: 20px;
+		font-weight: 440;
+
+		/* Appearance */
+		color: var(--app-color-90);
+	}
+
+	h6
+	{
+		/* Spacing */
+		margin: var(--app-margin);
+
+		/* Text */
+		font-size: 20px;
+		font-weight: 400;
+
+		/* Appearance */
+		color: var(--app-color-90);
+	}
+}

@@ -1,0 +1,130 @@
+@layer core_base
+{
+	body > nav
+	{
+		/* Meta */
+		grid-area: nav;
+
+		/* Layout */
+		display: flex;
+
+		/* Direction */
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
+
+		/* Overflow */
+		overflow: hidden auto;
+
+		/* Spacing */
+		gap: var(--app-margin);
+
+		/* Appearance */
+		background-color: var(--app-bgcolor-20);
+		color: var(--app-color-80);
+		user-select: none;
+	}
+
+	body > nav::-webkit-scrollbar-track
+	{
+		/* Appearance */
+		background-color: var(--app-bgcolor-20);
+	}
+
+	body > nav::-webkit-scrollbar-track-piece
+	{
+		/* Appearance */
+		background-color: var(--app-bgcolor-20);
+	}
+
+	body > nav::-webkit-scrollbar-thumb
+	{
+		/* Appearance */
+		background-color: var(--app-bgcolor-40);
+	}
+
+	body > nav::-webkit-scrollbar-thumb:hover
+	{
+		/* Appearance */
+		background-color: var(--app-bgcolor-60);
+	}
+
+	body > nav::-webkit-scrollbar-corner
+	{
+		/* Appearance */
+		background-color: var(--app-bgcolor-20);
+	}
+
+	body > nav > menu-group
+	{
+		/* Layout */
+		display: flex;
+
+		/* Size */
+		width: 100%;
+
+		/* Direction */
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
+
+		/* Spacing */
+		padding: clamp(var(--app-margin), var(--app-margin) + calc((100vw - 720px) / ((1080 - 720) / 16)), 2 * var(--app-margin));
+	}
+
+	body > nav > menu-group:not(:first-of-type)
+	{
+		/* Spacing */
+		padding-top: clamp(0, calc((100vw - 720px) / ((1080 - 720) / 16)), var(--app-margin));
+	}
+
+	body > nav > menu-group > menu-header
+	{
+		/* Appearance */
+		color: var(--app-color-80);
+	}
+
+	body > nav > menu-group > :is(menu-header, menu-entry)
+	{
+		/* Layout */
+		display: flex;
+
+		/* Size */
+		width: 100%;
+		height: 48px;
+
+		/* Direction */
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: center;
+
+		/* Spacing */
+		border-radius: var(--app-radius);
+		padding: var(--app-margin);
+		gap: var(--app-margin);
+
+		/* Overflow */
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+
+		/* Appearance */
+		user-select: none;
+	}
+
+	body > nav > menu-group > menu-entry:not(.active):hover
+	{
+		/* Appearance */
+		background-color: var(--app-bgcolor-30);
+		color: var(--app-color-90);
+		cursor: pointer;
+	}
+
+	body > nav > menu-group > menu-entry.active
+	{
+		/* Appearance */
+		background-color: var(--app-bgcolor-10);
+		color: var(--app-color-70);
+		cursor: not-allowed;
+	}
+}

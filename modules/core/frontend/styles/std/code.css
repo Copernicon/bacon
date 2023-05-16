@@ -1,0 +1,98 @@
+@layer core_base
+{
+	code
+	{
+		/* Meta */
+		all: unset;
+		box-sizing: border-box;
+
+		/* Layout */
+		display: inline-block;
+
+		/* Spacing */
+		padding: calc(.125 * var(--app-margin)) calc(.5 * var(--app-margin));
+		tab-size: 4;
+
+		/* Text */
+		font-family: 'Noto Sans Mono', monospace;
+		font-size: 81.25%;
+		word-break: break-word;
+
+		/* Appearance */
+		background-color: var(--app-bgcolor-20);
+		color: var(--app-color-80);
+	}
+
+	pre > code
+	{
+		/* Layout */
+		display: block;
+
+		/* Spacing */
+		margin: 0 var(--app-margin);
+	}
+
+	pre > code::-webkit-scrollbar-track
+	{
+		/* Appearance */
+		background-color: var(--app-bgcolor-30);
+	}
+
+	pre > code::-webkit-scrollbar-track-piece
+	{
+		/* Appearance */
+		background-color: var(--app-bgcolor-30);
+	}
+
+	pre > code::-webkit-scrollbar-thumb
+	{
+		/* Appearance */
+		background-color: var(--app-bgcolor-50);
+	}
+
+	pre > code::-webkit-scrollbar-thumb:hover
+	{
+		/* Appearance */
+		background-color: var(--app-bgcolor-70);
+	}
+
+	pre > code::-webkit-scrollbar-corner
+	{
+		/* Appearance */
+		background-color: var(--app-bgcolor-30);
+	}
+}
+
+@layer core_overrides
+{
+	code span
+	{
+		/* Meta */
+		all: unset
+	}
+
+	pre > code.hljs
+	{
+		/* Spacing */
+		padding: var(--app-margin) !important;
+	}
+
+	pre > code td.hljs-ln-line.hljs-ln-numbers
+	{
+		/* Spacing */
+		border-right: 4px solid var(--app-bgcolor-blue-40) !important;
+		padding-right: var(--app-margin) !important;
+	}
+
+	pre > code td.hljs-ln-line.hljs-ln-code
+	{
+		/* Spacing */
+		padding-left: var(--app-margin) !important;
+	}
+
+	pre > code td.hljs-ln-line.hljs-ln-numbers > .hljs-ln-n
+	{
+		/* Layout */
+		align-items: flex-end !important;
+	}
+}

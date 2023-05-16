@@ -1,0 +1,419 @@
+<section>
+	<h1>Formularz</h1>
+	<form method="post" action="/forms/api/v0/submit" id="forms/form" data-restricted>
+		<form-row>
+			<form-column>
+				<div>Informacje podstawowe</div>
+				<div>
+					<span><label for="mention" class="small">Jak zapisać Cię w programie atrakcji konwentowych?</label></span>
+					<span>
+						<select name="mention" required>
+							<option value="imie_nazwisko">Imię Nazwisko</option>
+							<option value="pseudonim">Pseudonim</option>
+							<option value="imie_pseudonim_nazwisko" selected>Imię "Pseudonim" Nazwisko</option>
+						</select>
+					</span>
+				</div>
+				<div>
+					<span><span>Osoby współprowadzące</span></span>
+					<span><label for="cohort_mention" class="small">Jak zapisać osobę współprowadzącą w programie?</label></span>
+					<span style="margin-top: calc(-1 * var(--app-margin)); color: var(--app-color-green-80); gap: calc(.5 * var(--app-margin));">
+						<img src="/core/frontend/icons/verified.svg" width="16px" height="16px">
+						<small class="input-success">Ta opcja ma znaczenie tylko dla osób z listy.</small>
+					</span>
+					<span>
+						<select id="cohort_mention" required>
+							<option value="imie_nazwisko">Imię Nazwisko</option>
+							<option value="pseudonim">Pseudonim</option>
+							<option value="imie_pseudonim_nazwisko" selected>Imię "Pseudonim" Nazwisko</option>
+						</select>
+					</span>
+					<span><label for="cohort_email" class="small">Adres e-mail osoby współprowadzącej.</label></span>
+					<span><small class="input-info" style="margin-top: -16px;">Ta opcja ma znaczenie tylko dla osób spoza listy.</small></span>
+					<span><input id="cohort_email" type="email" minlength="3" maxlength="128" placeholder="opcjonalnie"></span>
+					<span><label for="cohort_phone" class="small">Numer telefonu osoby współprowadzącej.</label></span>
+					<span><small class="input-info" style="margin-top: -16px;">Ta opcja ma znaczenie tylko dla osób spoza listy.</small></span>
+					<span><input id="cohort_phone" type="tel" pattern="(?:\+[1-9])?[\d \-]+" maxlength="32" placeholder="opcjonalnie"></span>
+					<span>
+						<small class="input-warning">
+							Jeśli możesz, to wybierz, proszę, osobę z listy zamiast wpisywać ją ręcznie. Znacznie ułatwi to pracę orgom.
+						</small>
+					</span>
+					<span>
+						<input id="forms/form/user" type="text" list="forms/form/users/datalist" placeholder="Imię i Nazwisko / Ksywka" maxlength="128">
+						<button style="width: 42px; min-width: 0; flex-shrink: 0;" id="forms/form/add-user" title="Dodaj osobę współprowadzącą">
+							<img class="icon" src="/core/frontend/icons/user-add.svg" width="24" height="24">
+						</button>
+					</span>
+				</div>
+				<div id="forms/form/users/div"></div>
+			</form-column>
+			<form-column>
+				<div>Punkt programu</div>
+				<div>
+					<span><label for="type" class="small">Jakiego rodzaju atrakcję programową chcesz zgłosić?</label></span>
+					<span>
+						<select name="type" required data-enables="type_others" data-enables-value="Inne" id="forms/form/type_others">
+							<option selected disabled></option>
+							<option value="prelekcja">Prelekcja</option>
+							<option value="konkurs">Konkurs</option>
+							<option value="RPG">RPG</option>
+							<option value="LARP">LARP</option>
+							<option value="inne">Inne</option>
+						</select>
+					</span>
+					<span data-contains="type_others" data-type="inne" hidden>
+						<textarea name="type_others" data-enabled="type_others" data-contained="type_others" maxlength="50" data-required></textarea>
+					</span>
+				</div>
+				<div data-type="konkurs" hidden>
+					<span>
+						<label for="type_contest" class="small">
+							Czy zgłaszany konkurs jest indywidualny czy drużynowy?
+						</label>
+					</span>
+					<span>
+						<select name="type_contest" data-required>
+							<option selected disabled></option>
+							<option value="indywidualny">Indywidualny</option>
+							<option value="druzynowy">Drużynowy</option>
+						</select>
+					</span>
+				</div>
+				<div>
+					<span>
+						<label for="duration" class="small">
+							Długość proponowanej atrakcji programowej.
+						</label>
+					</span>
+					<span>
+						<select name="duration" required>
+							<option selected disabled></option>
+							<option value="45">45 min</option>
+							<option value="105">105 min</option>
+							<option value="165+" data-type="RPG|LARP|inne" hidden>165 min lub więcej</option>
+						</select>
+					</span>
+				</div>
+				<div>
+					<span><label for="track" class="small">Do jakiego bloku zgłaszasz atrakcję programową?</label></span>
+					<span>
+						<select name="track" required>
+							<option selected disabled></option>
+							<option value="literacki">Blok literacki</option>
+							<option value="popkulturowy">Blok popkulturowy</option>
+							<option value="popularnonaukowy">Blok popularnonaukowy</option>
+							<option value="manga_anime">Blok manga i anime</option>
+							<option value="konkursowy">Blok konkursowy</option>
+							<option value="gry_planszowe_karciane">Blok gier planszowych i karcianych</option>
+							<option value="gry_elektroniczne">Blok gier elektronicznych</option>
+							<option value="RPG">Blok RPG</option>
+							<option value="LARP">Blok LARP</option>
+						</select>
+					</span>
+				</div>
+				<div>
+					<span><label for="title" class="small">Jaki jest tytuł atrakcji programowej, którą zgłaszasz?</label></span>
+					<span><input name="title" type="text" maxlength="50" required></span>
+				</div>
+				<div>
+					<span><label for="full_description" class="small">Podaj pełny opis zgłaszanej atrakcji programowej.</label></span>
+					<span><textarea name="full_description" maxlength="600"></textarea></span>
+				</div>
+			</form-column>
+			<form-column data-type="RPG|LARP" hidden>
+				<div>Sesja</div>
+				<div>
+					<span><label for="system" class="small">Podaj system, w którym prowadzona będzie sesja.</label></span>
+					<span><input name="system" type="text" maxlength="50" data-required></span>
+				</div>
+				<div class="multiselect">
+					<span><input type="checkbox" name="system_knowledge" value="0"> Konieczna znajomość systemu</span>
+					<span><input type="checkbox" name="beginners_friendly" value="0"> Sesja przyjazna dla początkujących</span>
+				</div>
+				<div>
+					<span><label for="age" class="small">Preferowany wiek graczy</label>
+					<select name="age" data-required>
+						<option value="*" selected>Dowolny</option>
+						<option value="12-">do 12 lat</option>
+						<option value="12-18">12 - 18 lat</option>
+						<option value="18+">18+ lat</option>
+					</select></span>
+				</div>
+				<div>
+					<span>
+						<label for="num_players" class="small">Preferowana liczba graczy</label>
+						<input name="num_players" type="number" min="0" data-required>
+					</span>
+				</div>
+				<div data-type="RPG" hidden>
+					<span><label for="style" class="small">Zaznacz styl, który najlepiej opisuje twoją sesję.</label></span>
+					<select name="style" data-required data-enables="style_description" data-enables-value="inny">
+						<option selected disabled></option>
+						<option value="zwyciestwo">Sesja skupia się na dążeniu do jasno określonego zwycięstwa, a jej fabuła jest jedynie pretekstem dla sekwencji walki oraz innych rzeczy wymagających używania kości.</option>
+						<option value="historia">Najważniejszą częścią sesji jest historia, której częścią są postacie graczy. Może mieć ona związek zarówno z przeszłością postaci, jak i rozbudowanym pod tym względem scenariuszem.</option>
+						<option value="świat">Na sesji tworzysz świat mający konkretne zasady i nie chcesz, by je łamano. Istotna jest dla ciebie symulacja konkretnej sytuacji, wrzucenie w nią postaci i zobaczenie co się wydarzy.</option>
+						<option value="emocje">Istotne jest dla ciebie wywołanie emocji, chcesz, by gracze jak najbardziej wczuli się w odgrywane postacie i wczuli się w sytuacje wokół nich.</option>
+						<option value="zabawa">Stawiasz na sesji na dobrą zabawę, nie dając graczom większych ograniczeń. Najważniejsze jest dla ciebie, by wszyscy się śmiali, nawet jeśli może to wychodzić poza ramy świata czy napisanej historii.</option>
+						<option value="inny">Inny</option>
+					</select>
+				</div>
+				<div data-containes="style_description">
+					<span><label for="style_description" class="small">Podaj pełny opis preferowanego stylu prowadzenia sesji RPG.</label></span>
+					<span><textarea name="style_description" data-enabled="style_description" data-contained="style_description" maxlength="150"></textarea></span>
+				</div>
+			</form-column>
+			<form-column>
+				<div>Sprzęt</div>
+				<div>
+					<span>
+						<label for="tech_requirements" class="small">
+							Powiedz nam, jakie są wymagania dotyczące sprzętu technicznego potrzebnego w ramach zgłaszanej atrakcji programowej?
+						</label>
+					</span>
+				</div>
+				<div class="multiselect">
+					<span><input type="checkbox" name="tech_requirements[1]" value="0"> Komputer</span>
+					<span><input type="checkbox" name="tech_requirements[2]" value="0"> Rzutnik</span>
+					<span><input type="checkbox" name="tech_requirements[3]" value="0"> Głośniki</span>
+					<span><input type="checkbox" name="tech_requirements[4]" value="0"> Mikrofon</span>
+					<span><input type="checkbox" name="tech_requirements[5]" value="0"> Tablica / Flipchart</span>
+					<span><input type="checkbox" name="tech_requirements[6]" value="0"> Dostęp do internetu</span>
+					<span>
+						<input type="checkbox" name="tech_requirements[7]" value="0" data-enables="tech_requirements_others" data-enables-value="1">
+						Inne
+					</span>
+				</div>
+				<div data-containes="tech_requirements_others" hidden>
+					<span>
+						<textarea
+							name="tech_requirements_others"
+							data-enabled="tech_requirements_others"
+							data-contained="tech_requirements_others"
+							maxlength="250"
+						></textarea>
+					</span>
+				</div>
+			</form-column>
+			<form-column>
+				<div>Triggery</div>
+				<div>
+					<span>
+						<label for="trigger_list" class="small">
+							Czy w proponowanej atrakcji programowej mogą zostać poruszone tematy wywołujące silne emocje (tzw. triggery)?
+						</label>
+					</span>
+				</div>
+				<div class="multiselect">
+					<span>
+						<input type="checkbox" name="trigger_list[1]" value="0">
+						Przekleństwa</span>
+					<span>
+						<input type="checkbox" name="trigger_list[2]" value="0">
+						Przemoc</span>
+					<span>
+						<input type="checkbox" name="trigger_list[3]" value="0">
+						Treści o charakterze seksualnym</span>
+					<span>
+						<input type="checkbox" name="trigger_list[4]" value="0">
+						Przemoc o charakterze seksualnym</span>
+					<span>
+						<input type="checkbox" name="trigger_list[5]" value="0">
+						Samookaleczenie</span>
+					<span>
+						<input type="checkbox" name="trigger_list[6]" value="0">
+						Samobójstwo</span>
+					<span>
+						<input type="checkbox" name="trigger_list[7]" value="0">
+						Śmierć</span>
+					<span>
+						<input type="checkbox" name="trigger_list[8]" value="0">
+						Używki</span>
+					<span>
+						<input type="checkbox" name="trigger_list[9]" value="0">
+						Hazard</span>
+					<span>
+						<input type="checkbox" name="trigger_list[10]" value="0">
+						Choroby psychiczne
+					</span>
+					<span>
+						<input type="checkbox" name="trigger_list[11]" value="0">
+						Relatywnie często występujące fobie (np. arachnofobia, klaustrobia, hemofobia)
+					</span>
+					<span>
+						<input type="checkbox" name="trigger_list[12]" value="0">
+						Tematyka wykluczeń i dyskryminacji
+					</span>
+					<span>
+						<input type="checkbox" name="trigger_list[13]" value="0">
+						Full Touch (możliwy bezpośredni kontakt fizyczny między uczestnikami za obopólną zgodą)
+					</span>
+				</div>
+			</form-column>
+			<form-column>
+				<div>Przystępność</div>
+				<div><span><label for="accessability" class="small">Opisz proszę swoją dostępność w trakcie konwentu Copernicon 2023.</label></span></div>
+				<div class="multiselect">
+					<span><input type="checkbox" name="accessability[1]" value="0"> Odpowiedni dla dzieci do 12 roku życia</span>
+					<span><input type="checkbox" name="accessability[2]" value="0"> Przeznaczony dla osób dorosłych [18+]</span>
+					<span>
+						<input type="checkbox" name="accessability[3]" value="0">
+						Dostosowany do osób w spektrum autyzmu (m.in. przyciemnione światło, ściszone dźwięki)
+					</span>
+					<span><input type="checkbox" name="accessability[4]" value="0">
+						Dostosowany do osób z niepełnosprawnościami wzroku (osoby słabowidzące, osoby niewidome)
+					</span>
+					<span><input type="checkbox" name="accessability[5]" value="0">
+						Dostosowany do osób z niepełnosprawnościami słuchu (osoby słabosłyszące, osoby głuche, osoby z uszkodzonym słuchem)
+					</span>
+					<span><input type="checkbox" name="accessability[6]" value="0">
+						Dostosowany do osób z niepełnosprawnościami ruchowymi
+					</span>
+					<span><input type="checkbox" name="accessability[7]" value="0">
+						Dostosowany dla obcokrajowców (np. punkt programu wielojęzyczny, prowadzony w języku angielskim)
+					</span>
+					<span><input type="checkbox" name="accessability[8]" value="0">
+						Dostosowany do obywateli Ukrainy (punkt programu z materiałami w językach
+						ukraińskim lub rosyjskim lub punkt programu posługujący się przystępną polszczyzną)
+					</span>
+				</div>
+			</form-column>
+			<form-column>
+				<div>Dostępność</div>
+				<div>
+					<span>
+						<label for="preference_time" class="small">
+							W jakich dniach/godzinach NIE będziesz w stanie przeprowadzić zgłaszanej atrakcji programowej?
+						</label>
+					</span>
+				</div>
+				<div class="multiselect">
+					<span><input type="checkbox" name="preference_time[1]" value="0"> Piątek 14:00 - 18:00</span>
+					<span><input type="checkbox" name="preference_time[2]" value="0"> Piątek 18:00 - 22:00</span>
+					<span><input type="checkbox" name="preference_time[3]" value="0"> Sobota 10:00 - 14:00</span>
+					<span><input type="checkbox" name="preference_time[4]" value="0"> Sobota 14:00 - 18:00</span>
+					<span><input type="checkbox" name="preference_time[5]" value="0"> Sobota 18:00 - 22:00</span>
+					<span><input type="checkbox" name="preference_time[6]" value="0"> Niedziela 10:00 - 13:00</span>
+					<span><input type="checkbox" name="preference_time[7]" value="0"> Niedziela 13:00 - 16:00</span>
+				</div>
+				<div>
+					<span>
+						<label for="preferences_additional" class="small">
+							Czy masz dodatkowe uwagi dotyczące twojej dostępności jak chodzi o poprowadzenie zgłaszanej atrakcji programowej?
+						</label>
+					</span>
+					<span><textarea name="preferences_additional" maxlength="250"></textarea></span>
+				</div>
+			</form-column>
+			<form-column>
+				<div>Doświadczenie</div>
+				<div>
+					<span>
+						<label for="previous_conventions" class="small">
+							Czy atrakcja programowa odbywała się już wcześniej na innym konwencie
+							lub jest planowana w programie na innym konwencie w 2023 roku?
+						</label>
+					</span>
+					<span>
+						<input type="checkbox" name="previous_conventions" value="0" data-enables="previous_conventions_which" data-enables-value="1">
+						Tak
+					</span>
+				</div>
+				<div data-containes="previous_conventions_which" hidden>
+					<span>
+						<label for="previous_conventions_which" class="small">Jeśli w poprzednim pytaniu zaznaczono "tak", wymień na jaki konwentach?</label>
+					</span>
+					<span>
+						<textarea
+							name="previous_conventions_which"
+							maxlength="250"
+							data-enabled="previous_conventions_which"
+							data-contained="previous_conventions_which"
+						></textarea>
+					</span>
+				</div>
+				<div>
+					<span>
+						<label for="experience" class="small">Opisz proszę jakie jest twoje doświadczenie w prowadzeniu programu na konwentach?</label>
+					</span>
+					<span><textarea name="experience" maxlength="250"></textarea></span>
+				</div>
+				<div>
+					<span><label for="organization" class="small">W jakiej organizacji lub klubie fantastyki działasz na co dzień?</label></span>
+					<span><input name="organization" type="text" maxlength="50"></span>
+				</div>
+			</form-column>
+			<form-column>
+				<div>
+					<span>Informacje dodatkowe</span>
+					<span>
+						<label for="dis_panel_question" class="small">
+							Czy wyrażasz chęć potencjalnego uczestnictwa w innych panelach tematycznych
+							odbywających się w ramach konwentu w charakterze panelisty?
+						</label>
+					</span>
+					<span>
+						<input type="checkbox" name="dis_panel_question" value="0" data-enables="dis_panel_topics" data-enables-value="1">
+						Tak
+					</span>
+				</div>
+				<div data-containes="dis_panel_topics" hidden>
+					<span>
+						<label for="dis_panel_topics" class="small">
+							Jeśli w poprzednim pytaniu zaznaczono "tak", opisz jakie tematy najlepiej pasują do ciebie w kontekście uczestnictwa w panelu.
+						</label>
+					</span>
+					<span>
+						<textarea name="dis_panel_topics" data-enabled="dis_panel_topics" data-contained="dis_panel_topics" maxlength="250"></textarea>
+					</span>
+				</div>
+				<div>
+					<span>
+						<label for="other_remarks" class="small">
+							Czy masz jakieś dodatkowe uwagi jak chodzi o zgłaszną atrakcję programową?
+						</label>
+					</span>
+					<span><textarea name="other_remarks" maxlength="250"></textarea></span>
+				</div>
+			</form-column>
+			<form-column>
+				<div>
+					<span>Zgody</span>
+					<span>
+						<input type="checkbox" data-required="Zgoda dobrowolna, acz wymagana.">
+						<small class="input-info">
+							Wyrażam zgodę na przetwarzanie moich danych osobowych na potrzeby rozpatrzenia mojego zgłoszenia punktu programu i jego realizacji
+							na wydarzeniu Copernicon 2023 organizowanego przez Stowarzyszenie Miłośników Gier i Fantastyki THORN z siedzibą w Toruniu.
+							Więcej informacji w <a href="https://copernicon.pl/polityka-prywatnosci/">Polityce Prywatności</a>.
+						</small>
+					</span>
+					<span>
+						<input type="checkbox" data-required="Zgoda dobrowolna, acz wymagana.">
+						<small class="input-info">
+							Wyrażam zgodę na opublikowanie mojego imienia, nazwiska oraz pseudonimu na stronie internetowej Copernicon 2023,
+							w informatorze konwentowym oraz w mediach społecznościowych prowadzonych przez Copernicon.
+						</small>
+					</span>
+					<span>
+						<input type="checkbox" data-required="Zgoda dobrowolna, acz wymagana.">
+						<small class="input-info">
+							Wyrażam zgodę na przesyłanie przez Stowarzyszenie Miłośników Gier i Fantastyki THORN z siedzibą w Toruniu,
+							informacji drogą elektroniczną, zgodnie z ustawą z dnia 18.07.2002 r. o świadczeniu usług drogą elektroniczną
+							(Dz.U. z 2002 r. Nr 144, poz. 1204 z późn. zm.).
+						</small>
+					</span>
+				</div>
+			</form-column>
+		</form-row>
+		<form-row>
+			<form-column>
+				<div>
+					<button type="submit"><img class="icon" src="/core/frontend/icons/send.svg" width="24" height="24"> Wyślij formularz</button>
+				</div>
+			</form-column>
+		</form-row>
+		<datalist id="forms/form/users/datalist"></datalist>
+		<output for="forms/form" hidden></output>
+	</form>
+</section>
+<script type="module" src="/forms/frontend/scripts/pages/form.mjs" async></script>
