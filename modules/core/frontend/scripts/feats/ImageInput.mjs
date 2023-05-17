@@ -1,5 +1,3 @@
-import Cookies from '/core/frontend/scripts/interfaces/Cookies.mjs';
-
 /**
 	Hooks *image inputs¹*.
 	- Sets the `accept` attribute of *image inputs¹*.
@@ -64,30 +62,27 @@ export default class ImageInput
 	}
 
 	/** Hooks {@link input `input`}. */
-	static #hook(/** @type {HTMLInputElement} */ input)
+	static async #hook(/** @type {HTMLInputElement} */ input)
 	{
-		(async () =>
+		if (ImageInput.#accept === null)
+			await ImageInput.#getRestrictions();
+
+		if (ImageInput.#accept === null)
+			return;
+
+		input.setAttribute('accept', ImageInput.#accept);
+
+		if (ImageInput.#maxUploadSize !== null)
 		{
-			if (ImageInput.#accept === null)
-				await ImageInput.#getRestrictions();
+			const warning = document.createElement('small');
 
-			if (ImageInput.#accept === null)
-				return;
+			warning.append(`Maksymalny rozmiar pliku: ${ImageInput.#maxUploadSize} MiB`);
+			warning.classList.add('input-warning');
 
-			input.setAttribute('accept', ImageInput.#accept);
+			input.parentElement?.after(warning);
+		}
 
-			if (ImageInput.#maxUploadSize !== null)
-			{
-				const warning = document.createElement('small');
-
-				warning.append(`Maksymalny rozmiar pliku: ${ImageInput.#maxUploadSize} MiB`);
-				warning.classList.add('input-warning');
-
-				input.parentElement?.after(warning);
-			}
-
-			input.addEventListener('change', () => void ImageInput.#postImageChange(input));
-		})();
+		input.addEventListener('change', () => void ImageInput.#postImageChange(input));
 	}
 
 	/**
@@ -96,11 +91,6 @@ export default class ImageInput
 	*/
 	static async #getRestrictions()
 	{
-		const token = Cookies.get('core/session/token');
-
-		if (token === null)
-			return;
-
 		const json = await (async () =>
 		{
 			const path = '/core/api/v0/get-image-upload-restrictions';
