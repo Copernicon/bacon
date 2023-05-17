@@ -48,15 +48,17 @@ Registers a new user account, then send an e-mail with an activation link.
 >	✳️ No token is required. <br>
 >	🧿 No project id is required.
 >
-> 	Property     | Type
-> 	--------     | ----
->	`login`      | `string`, 3 – 64 chars, `/^(?:[\p{L}\p{N}]+(?:[_-]?[\p{L}\p{N}]+)*){3,64}$/u`
->	`email`      | `string`, 3 – 128 chars, `/.@./u`
->	`password`   | `string`, 16 – 128 chars
-> 	`first_name` | `null` \| `string`, 1 – 64 chars, `/^(?:[\p{L}\p{N}]+(?:[ -]?[\p{L}\p{N}]+)*){1,64}$/u`
-> 	`nick_name`  | `null` \| `string`, 1 – 64 chars, `/^(?:[\p{L}\p{N}]+(?:[ -]?[\p{L}\p{N}]+)*){1,64}$/u`
-> 	`last_name`  | `null` \| `string`, 1 – 64 chars, `/^(?:[\p{L}\p{N}]+(?:[ -]?[\p{L}\p{N}]+)*){1,64}$/u`
-> 	`phone`      | `null` \| `string`, 0 – 32 chars, `/^(?:\+[1-9])?[\d \-]+$/u`
+> 	Property         | Type
+> 	--------         | ----
+>	`login`          | `string`, 3 – 64 chars, `/^(?:[\p{L}\p{N}]+(?:[_-]?[\p{L}\p{N}]+)*){3,64}$/u`           | The user login.
+>	`email`          | `string`, 3 – 128 chars, `/.@./u`                                                       | The user email.
+>	`password`       | `string`, 16 – 128 chars                                                                | The user password.
+> 	`first_name`     | `null` \| `string`, 1 – 64 chars, `/^(?:[\p{L}\p{N}]+(?:[ -]?[\p{L}\p{N}]+)*){1,64}$/u` | The user first name.
+> 	`nick_name`      | `null` \| `string`, 1 – 64 chars, `/^(?:[\p{L}\p{N}]+(?:[ -]?[\p{L}\p{N}]+)*){1,64}$/u` | The user nick name.
+> 	`last_name`      | `null` \| `string`, 1 – 64 chars, `/^(?:[\p{L}\p{N}]+(?:[ -]?[\p{L}\p{N}]+)*){1,64}$/u` | The user last name.
+> 	`phone`          | `null` \| `string`, 0 – 32 chars, `/^(?:\+[1-9])?[\d \-]+$/u`                           | The user phone.
+>	`logo`           | `null \| string`, base64 encoded file                                                   | The project logo.
+>	`logo_extension` | `null \| string`                                                                        | The project logo extension.
 >
 > - Required permissions
 >
