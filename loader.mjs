@@ -14,6 +14,9 @@ export function resolve
 	if (specifier.startsWith('^'))
 		specifier = `${path.dirname(import.meta.url)}/${specifier.substring(1)}`;
 	else
+	if (specifier.startsWith('//'))
+		specifier = `${specifier.substring(1)}`;
+	else
 	if
 	(
 			specifier.startsWith('/')
