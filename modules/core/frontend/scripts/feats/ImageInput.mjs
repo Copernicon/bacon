@@ -107,7 +107,7 @@ export default class ImageInput
 
 			try
 			{
-				return await (await fetch(path, { method: 'POST', body: JSON.stringify({ token: token })})).json();
+				return await (await fetch(path, { method: 'POST', body: JSON.stringify({})})).json();
 			}
 			catch (message)
 			{

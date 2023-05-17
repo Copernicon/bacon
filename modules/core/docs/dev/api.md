@@ -244,11 +244,8 @@ Gets image upload restrictions.
 >
 > - Request
 >
+>	✳️ No token is required. <br>
 >	🧿 No project id is required.
->
-> 	Property | Type                      | Description
-> 	-------- | ----                      | ---
->	`token`  | `string`, 128 alnum chars | The session token.
 >
 > - Required permissions
 >
