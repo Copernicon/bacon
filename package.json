@@ -24,8 +24,6 @@
 		"url": "git+https://github.com/Copernicon/bacon.git"
 	},
 	"dependencies": {
-		"@babel/eslint-parser": "^7.21.3",
-		"@babel/plugin-syntax-import-assertions": "^7.20.0",
 		"bacon": "^0.0.1",
 		"bcryptjs": "^2.4.3",
 		"colors": "^1.4.0",
@@ -36,7 +34,12 @@
 		"nodemailer": "^6.9.1",
 		"ws": "^8.13.0"
 	},
+	"devDependencies": {
+		"@babel/eslint-parser": "^7.21.3",
+		"@babel/plugin-syntax-import-assertions": "^7.20.0"
+	},
 	"scripts": {
+		"preinstall": "npm install --save-dev eslint@latest @babel/core@latest",
 		"start": "node --no-warnings --loader ./loader.mjs start.js bacon",
 		"stop": "node stop.js"
 	}
