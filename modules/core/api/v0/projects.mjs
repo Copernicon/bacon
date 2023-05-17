@@ -109,9 +109,6 @@ async function add(/** @type {Object.<string, *>} */ data)
 		if (name.length < 3 || name.length > 128)
 			return JSON.stringify({ success: false, code: 400, message: 'Nieprawidłowa nazwa.' });
 
-		if ((logo === null) !== (extension === null))
-			return JSON.stringify({ success: false, code: 400, message: 'Brak logo albo rozszerzenia.' });
-
 		if (logo !== null)
 		{
 			if (extension === null)

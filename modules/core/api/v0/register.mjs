@@ -53,9 +53,6 @@ export default async (/** @type {string} */ json) =>
 		if (![0, 1].includes(searchable))
 			return JSON.stringify({ success: false, code: 400, message: 'Nieprawidłowa wartość pola zgody opcjonalnej.' });
 
-		if ((logo === null) !== (extension === null))
-			return JSON.stringify({ success: false, code: 400, message: 'Brak logo albo rozszerzenia.' });
-
 		if (logo !== null)
 		{
 			if (extension === null)
