@@ -1,7 +1,6 @@
-import fs from 'node:fs';
-import cryptoRandomString from 'crypto-random-string';
 import Permissions from '/core/backend/scripts/interfaces/Permissions.mjs';
 import Projects from '/core/backend/scripts/interfaces/Projects.mjs';
+import Uploads from '/core/backend/scripts/interfaces/Uploads.mjs';
 import SQL from '/core/backend/scripts/interfaces/SQL.mjs';
 import noexcept from '/core/shared/scripts/utils/noexcept.mjs';
 import server from '/core/backend/data/server.json' assert { type: 'json' };
@@ -103,11 +102,8 @@ async function add(/** @type {Object.<string, *>} */ data)
 	}
 
 	const name = String(data.name);
-	const logo = String(data.logo).length == 0 ? null : String(data.logo);
+	let logo = String(data.logo).length == 0 ? null : String(data.logo);
 	const extension = String(data.logo_extension).length == 0 ? null : String(data.logo_extension);
-
-	/** @type {string?} */
-	let logoPath = null;
 
 	{
 		if (name.length < 3 || name.length > 128)
@@ -128,39 +124,17 @@ async function add(/** @type {Object.<string, *>} */ data)
 
 			if (logo.length > maxSize)
 				return JSON.stringify({ success: false, code: 400, message: `Plik z logo za duży. Maksymalny rozmiar: ${maxSize} MiB).` });
-
-			const date = new Date();
-			const year = String(date.getFullYear()).padStart(4, '0');
-			const month = String(date.getMonth()).padStart(2, '0');
-			const relativePath = `/${year}/${month}`;
-			const absolutePath = `${fs.realpathSync('./uploads')}${relativePath}`;
-
-			if (!fs.existsSync(absolutePath))
-			{
-				const success = noexcept(fs.mkdirSync)(absolutePath, { recursive: true });
-
-				if (success === null)
-					return JSON.stringify({ success: false, code: 500, message: '<mark>Backend/Filesystem</mark> Nie udało się utworzyć katalogu na logo.' });
-			}
-
-			const stem = cryptoRandomString({ length: server.tokenSize, type: 'alphanumeric' });
-			const fileName = `${stem}.${extension}`;
-			const filePath = `${absolutePath}/${fileName}`;
-
-			const success = noexcept(fs.writeFileSync)(filePath, logo.replace(/^.*?,/u, ''), 'base64');
-
-			if (success === null)
-				return JSON.stringify({ success: false, code: 500, message: '<mark>Backend/Filesystem</mark> Nie udało się zapisać pliku z logo.' });
-
-			logoPath = `/uploads${relativePath}/${fileName}`;
 		}
 	}
+
+	if (logo !== null && extension !== null)
+		logo = Uploads.upload(logo, extension);
 
 	const success = await SQL.transaction(
 	[
 		{
 			statement: 'INSERT INTO projects (name, logo) VALUES (:name, :logo)',
-			params: { name, logo: logoPath }
+			params: { name, logo: logo }
 		},
 		{
 			statement: 'INSERT INTO logs (module, event, user) VALUES (:module, :event, :user)',
