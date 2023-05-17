@@ -52,6 +52,7 @@ CREATE TABLE IF NOT EXISTS `projects` (
   `access` enum('open','request','invite','none') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'invite',
   `name` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
   `logo` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `logo` varchar(192) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`),
   KEY `access` (`access`)
