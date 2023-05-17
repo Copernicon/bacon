@@ -21,11 +21,11 @@ export default class Uploads
 		const year = String(date.getFullYear()).padStart(4, '0');
 		const month = String(date.getMonth()).padStart(2, '0');
 		const relativePath = `/${year}/${month}`;
-		const absolutePath = `${fs.realpathSync('./uploads')}${relativePath}`;
+		const absolutePath = `${fs.realpathSync('.')}${relativePath}`;
 
 		if (!fs.existsSync(absolutePath))
 		{
-			const success = noexcept(fs.mkdirSync)(absolutePath, { recursive: true });
+			const success = noexcept(fs.mkdirSync)(absolutePath + '/uploads', { recursive: true });
 
 			if (success === null)
 				return null;
