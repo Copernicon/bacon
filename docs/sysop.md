@@ -32,7 +32,9 @@ Requirements installation.
 1. Install the `bacon` [`npm`](https://www.npmjs.com) package.
 
 	```bash
-	npm install @copernicon/bacon
+	git clone https://github.com/Copernicon/bacon.git .
+	npm install --save-dev eslint@latest @babel/core@latest
+	npm install
 	```
 
 ## Configuration
