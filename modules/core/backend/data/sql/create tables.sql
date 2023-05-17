@@ -1,3 +1,8 @@
+SET NAMES utf8;
+SET time_zone = '+00:00';
+SET foreign_key_checks = 0;
+SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
+
 CREATE TABLE IF NOT EXISTS `activations` (
   `user` int(10) unsigned NOT NULL,
   `code` char(128) COLLATE utf8_unicode_ci NOT NULL,
