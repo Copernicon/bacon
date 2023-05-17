@@ -24,7 +24,5 @@ INSERT INTO roles_permissions (role, permission) VALUES
 	(@roles.projects.manager, @permissions.projects.edit)
 	ON DUPLICATE KEY UPDATE role = role;
 
-SELECT @roles.admin, @roles.projects.manager;
-
 INSERT INTO roles_roles (role, subrole) VALUES (@roles.admin, @roles.projects.manager) ON DUPLICATE KEY UPDATE role = role;
 INSERT INTO users_roles (user, project, role) VALUES (0, NULL, @roles.admin) ON DUPLICATE KEY UPDATE user = user;
