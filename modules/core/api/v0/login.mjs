@@ -24,7 +24,7 @@ export default async (/** @type {string} */ json) =>
 
 	const select = await SQL.select
 	(
-		'SELECT id, password, first_name, nick_name, last_name FROM users WHERE login = :login LIMIT 1',
+		'SELECT active, banned, id, password, first_name, nick_name, last_name FROM users WHERE login = :login LIMIT 1',
 		{ login: login }
 	);
 
@@ -33,6 +33,12 @@ export default async (/** @type {string} */ json) =>
 
 	if (select === false)
 		return JSON.stringify({ success: false, code: 403, message: 'Nieprawidłowy login.' });
+
+	if (select[0]?.banned == 1)
+		return JSON.stringify({ success: false, code: 403, message: 'Konto zbanowane.' });
+
+	if (select[0]?.active != 1)
+		return JSON.stringify({ success: false, code: 403, message: 'Konto nieaktywne.' });
 
 	const hash = String(select[0]?.password);
 	const valid = bcrypt.compareSync(password, hash);
