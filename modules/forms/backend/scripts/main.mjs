@@ -53,7 +53,7 @@ export default class Forms extends Module
 
 		for (const path of
 		[
-			'/core/backend/data/sql/create tables.sql',
+			'/forms/backend/data/sql/create tables.sql',
 		])
 		{
 			const file = noexcept(fs.readFileSync)(modulesPath + path)?.toString();
@@ -77,7 +77,7 @@ export default class Forms extends Module
 
 		for (const path of
 		[
-			'/core/backend/data/sql/drop tables.sql',
+			'/forms/backend/data/sql/drop tables.sql',
 		])
 		{
 			const file = noexcept(fs.readFileSync)(modulesPath + path)?.toString();
