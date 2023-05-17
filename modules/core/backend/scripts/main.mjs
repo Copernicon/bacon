@@ -179,7 +179,6 @@ export default class Core extends Module
 			'/core/backend/data/sql/create tables.sql',
 			'/core/backend/data/sql/create events.sql',
 			'/core/backend/data/sql/insert data.sql',
-			'/core/backend/data/sql/set auto increments.sql',
 		])
 		{
 			const file = noexcept(fs.readFileSync)(modulesPath + path)?.toString();
