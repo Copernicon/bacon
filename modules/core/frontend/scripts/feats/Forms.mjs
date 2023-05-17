@@ -131,6 +131,7 @@ export default class Forms
 			/** @type {Object.<string, *>} */
 			const object = {};
 
+			form.classList.remove('success');
 			form.querySelectorAll('[name]').forEach(e =>
 			{
 				if
@@ -163,8 +164,12 @@ export default class Forms
 				eval(`object${index} = ${newValue}`);
 			});
 
-			form.classList.remove('success');
-			await Forms.#serializeFiles(object);
+			/** @type {Object.<string, *>} */
+			const files = Object.fromEntries(new FormData(form).entries());
+			await Forms.#serializeFiles(files);
+
+			for (const [key, value] of Object.entries(files))
+				object[key] = value;
 
 			if (form.hasAttribute('data-restricted'))
 			{
@@ -261,24 +266,26 @@ export default class Forms
 	/**
 		Serializes files to data URLs, and if a file has an extension:
 		- Adds the field `${key}_extension` with the extension as value.
+		Otherwise, removes the entry, leaving only files and extensions.
 	*/
 	static async #serializeFiles(/** @type {Object.<string, *>} */ object)
 	{
 		for (const [key, value] of Object.entries(object))
 		{
-			if (!(value instanceof File))
+			if
+			(
+					!(value instanceof File)
+				||	value.size == 0
+			)
+			{
+				delete object[key];
 				continue;
+			}
 
 			const extension = value.name.match(/\.(?<extension>[^.]+)$/u)?.groups?.extension;
 
 			if (extension)
 				object[`${key}_extension`] = extension;
-
-			if (value.size == 0)
-			{
-				object[key] = null;
-				continue;
-			}
 
 			const file = await new Promise(resolve =>
 			{
