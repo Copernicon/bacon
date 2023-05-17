@@ -64,7 +64,8 @@ CREATE TABLE IF NOT EXISTS `roles` (
   `name` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
   `project_null` int(1) unsigned GENERATED ALWAYS AS (IF(ISNULL(`project`), '1', '0')) VIRTUAL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `project_name` (`project`,`project_null`,`name`),
+  UNIQUE KEY `project_name` (`project`,`name`),
+  UNIQUE KEY `project_null_name` (`project_null`,`name`),
   KEY `name` (`name`),
   CONSTRAINT `roles_ibfk_2` FOREIGN KEY (`project`) REFERENCES `projects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -123,7 +124,8 @@ CREATE TABLE IF NOT EXISTS `users_permissions` (
   `project` int(10) unsigned DEFAULT NULL,
   `project_null` int(1) unsigned GENERATED ALWAYS AS (IF(ISNULL(`project`), '1', '0')) VIRTUAL,
   `permission` int(10) unsigned NOT NULL,
-  UNIQUE KEY `user_project_permission` (`user`,`project`,`project_null`,`permission`),
+  UNIQUE KEY `user_project_permission` (`user`,`project`,`permission`),
+  UNIQUE KEY `user_project_null_permission` (`user`,`project_null`,`permission`),
   KEY `permission` (`permission`),
   KEY `project` (`project`),
   CONSTRAINT `users_permissions_ibfk_4` FOREIGN KEY (`user`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -146,9 +148,10 @@ CREATE TABLE IF NOT EXISTS `users_projects` (
 CREATE TABLE IF NOT EXISTS `users_roles` (
   `user` int(10) unsigned NOT NULL,
   `project` int(10) unsigned DEFAULT NULL,
-  `project_null` int(1) unsigned GENERATED ALWAYS AS (IF(ISNULL(`project`), '1', '0')) VIRTUAL,
+  `project_null` int(1) unsigned GENERATED ALWAYS AS (IF(ISNULL(`project`), 'NULL', project)) VIRTUAL,
   `role` int(10) unsigned NOT NULL,
-  UNIQUE KEY `user_project_role` (`user`,`project`,`project_null`,`role`),
+  UNIQUE KEY `user_project_role` (`user`,`project`,`role`),
+  UNIQUE KEY `user_project_null_role` (`user`,`project_null`,`role`),
   KEY `role` (`role`),
   KEY `project` (`project`),
   KEY `user` (`user`),
