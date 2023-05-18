@@ -279,7 +279,7 @@ export default class SQL
 	{
 		const result = await SQL.query(statement, params);
 
-		if (result?.constructor !== Object)
+		if (result === null)
 			return null;
 
 		/** @type {number?} */
@@ -329,7 +329,7 @@ export default class SQL
 	{
 		const result = await SQL.query(statement, params);
 
-		if (result?.constructor !== Object)
+		if (result === null)
 			return null;
 
 		/** @type {number?} */
@@ -378,7 +378,7 @@ export default class SQL
 	{
 		const result = await SQL.query(statement, params);
 
-		if (result?.constructor !== Object)
+		if (result === null)
 			return null;
 
 		/** @type {number?} */
