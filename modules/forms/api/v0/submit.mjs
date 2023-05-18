@@ -267,7 +267,7 @@ export default async (/** @type {string} */ json) =>
 					track,
 					title,
 					full_description,
-					system,
+					\`system\`,
 					system_knowledge,
 					beginners_friendly,
 					age,
