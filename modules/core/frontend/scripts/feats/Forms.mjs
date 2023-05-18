@@ -274,9 +274,16 @@ export default class Forms
 	}
 
 	/**
-		Serializes files to data URLs, and if a file has an extension:
+		Serializes {@link object `object`} files to data URLs, and if a file has an extension:
 		- Adds the field `${key}_extension` with the extension as value.
+
 		Otherwise, removes the entry, leaving only files and extensions.
+
+		@return
+		The {@link object `object`}:
+		- without non–file properties
+		- with file properties' values changed from files to data URLs
+		- with `${key}_extension` properties added for each files
 	*/
 	static async #serializeFiles(/** @type {Object.<string, *>} */ object)
 	{
