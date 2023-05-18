@@ -43,6 +43,7 @@ export default class Menu
 		Menu.show.imp(Menu.#show);
 		Menu.hide.imp(Menu.#hide);
 
+		Navigation.goto.pre(Menu.#updateLoadingEntry);
 		Navigation.goto.post(Menu.#updateActiveEntry);
 		Navigation.goto.post(() => void (document.body.offsetWidth < 720 && Menu.hide.run()));
 
@@ -191,9 +192,33 @@ export default class Menu
 		}
 	}
 
+	/** Updates the loading entry indicator. */
+	static #updateLoadingEntry(/** @type {import('/core/frontend/scripts/interfaces/Navigation.mjs').Page} */ page)
+	{
+		for (const loadingIndicator of document.querySelectorAll('menu-entry > div[data-loading]'))
+			loadingIndicator.remove();
+
+		for (const element of document.querySelectorAll(`menu-entry[data-goto="${page.path.replace(/\?.*$/u, '')}"]`))
+		{
+			const div = document.createElement('div');
+			div.style.width = '100%';
+			div.style.alignItems = 'flex-end';
+			div.setAttribute('data-loading', '');
+
+			const span = document.createElement('div');
+			span.classList.add('loading');
+
+			div.append(span);
+			element.append(div);
+		}
+	}
+
 	/** Updates the active entry indicator. */
 	static #updateActiveEntry(/** @type {import('/core/frontend/scripts/interfaces/Navigation.mjs').Page} */ page)
 	{
+		for (const loadingIndicator of document.querySelectorAll('menu-entry > div[data-loading]'))
+			loadingIndicator.remove();
+
 		for (const activeMenuEntry of document.querySelectorAll('menu-entry.active'))
 		{
 			activeMenuEntry.classList.remove('active');

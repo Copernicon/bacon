@@ -41,6 +41,7 @@
 
 		/* Layout */
 		display: block;
+		flex-shrink: 0;
 
 		/* Size */
 		width: 1lh;

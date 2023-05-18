@@ -112,6 +112,17 @@
 		user-select: none;
 	}
 
+	body > nav > menu-group > :is(menu-header, menu-entry) > span
+	{
+		/* Layout */
+		display: inline;
+
+		/* Overflow */
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+
 	body > nav > menu-group > menu-entry:not(.active):hover
 	{
 		/* Appearance */
