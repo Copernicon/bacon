@@ -124,6 +124,10 @@ export default class Forms
 		if (!(output instanceof HTMLOutputElement))
 			return;
 
+		output.replaceChildren();
+		output.classList.remove('green', 'red');
+		output.classList.add('loading');
+
 		form.addEventListener('submit', async event =>
 		{
 			event.preventDefault();
@@ -350,7 +354,7 @@ export default class Forms
 	/** Shows the error {@link message `message`} on {@link output `output`}. */
 	static #showError(/** @type {HTMLOutputElement} */ output, /** @type {string} */ message)
 	{
-		output.classList.remove('green');
+		output.classList.remove('loading', 'green');
 		output.classList.add('red');
 		output.innerHTML = message;
 		output.removeAttribute('hidden');
@@ -360,7 +364,7 @@ export default class Forms
 	/** Shows the success {@link message `message`} on {@link output `output`}. */
 	static #showSuccess(/** @type {HTMLOutputElement} */ output, /** @type {string} */ message)
 	{
-		output.classList.remove('red');
+		output.classList.remove('loading', 'red');
 		output.classList.add('green');
 		output.innerHTML = message;
 		output.removeAttribute('hidden');
