@@ -111,21 +111,22 @@ export default async (/** @type {string} */ json) =>
 
 		if
 		(
-				httpLink
-			&&	httpsLink
+				server.http.enabled
+			&&	server.https.enabled
+			&&	!server.http.redirectToHTTPS
 		)
 		{
 			return [
-					`Link aktywacyjny (HTTP): <a href="${httpLink}">${httpLink}</a>.`
-				+	`Link aktywacyjny (HTTPS): <a href="${httpsLink}">${httpsLink}</a>.`,
+					`Link aktywacyjny (HTTP): <a href="${httpLink}">Aktywuj konto</a>. <br>`
+				+	`Link aktywacyjny (HTTPS): <a href="${httpsLink}">Aktywuj konto</a>.`,
 					`Adres (HTTP): ${httpLink}\n\t`
 				+	`Adres (HTTPS): ${httpsLink}`
 			];
 		}
 
-		const link = httpLink ?? httpsLink;
+		const link = httpsLink ?? httpLink;
 
-		return [`Link aktywacyjny: <a href="${link}">${link}</a>.`, `Adres: ${link}`];
+		return [`Link aktywacyjny: <a href="${link}">Aktywuj konto</a>.`, `Adres: ${link}`];
 	})();
 
 	// send user activation code via email
