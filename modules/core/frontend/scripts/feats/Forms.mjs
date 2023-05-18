@@ -151,7 +151,7 @@ export default class Forms
 
 				for (const key of keys)
 				{
-					if (typeof element[key] != 'object')
+					if (element[key]?.constructor !== Object)
 						element[key] = {};
 
 					element = element[key];

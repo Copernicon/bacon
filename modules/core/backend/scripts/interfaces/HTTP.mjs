@@ -366,7 +366,7 @@ export default class HTTP
 
 			const file = await import(`/${path}`).catch(() => {});
 
-			if (typeof file != 'object')
+			if (file?.constructor !== Object)
 			{
 				HTTP.#sendResponse(response, 500, 'application/json', JSON.stringify({ success: false, message: `Importing '${request.url}' failed.` }));
 				return;

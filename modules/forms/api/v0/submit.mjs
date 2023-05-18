@@ -58,7 +58,7 @@ export default async (/** @type {string} */ json) =>
 		if
 		(
 				cohorts !== null
-			&&	typeof cohorts != 'object'
+			&&	cohorts?.constructor !== Object
 		)
 			return JSON.stringify({ success: false, code: 400, message: 'Nieprawidłowy typ współuczestników.' });
 
@@ -69,7 +69,7 @@ export default async (/** @type {string} */ json) =>
 
 			for (const [key, value] of Object.entries(cohorts))
 			{
-				if (typeof value != 'object')
+				if (value?.constructor !== Object)
 					return JSON.stringify({ success: false, code: 400, message: 'Nieprawidłowy typ wartości współuczestnika.' });
 
 				const id = Number(key);
@@ -89,7 +89,7 @@ export default async (/** @type {string} */ json) =>
 		if
 		(
 				plain_cohorts !== null
-			&&	typeof plain_cohorts != 'object'
+			&&	plain_cohorts?.constructor !== Object
 		)
 			return JSON.stringify({ success: false, code: 400, message: 'Nieprawidłowy typ współuczestników spoza listy.' });
 
@@ -100,7 +100,7 @@ export default async (/** @type {string} */ json) =>
 
 			for (const [key, value] of Object.entries(plain_cohorts))
 			{
-				if (typeof value != 'object')
+				if (value?.constructor !== Object)
 					return JSON.stringify({ success: false, code: 400, message: 'Nieprawidłowy typ wartości współuczestnika spoza listy.' });
 
 				const id = Number(key);
@@ -175,7 +175,7 @@ export default async (/** @type {string} */ json) =>
 		if (style_description !== null && style_description.length > 150)
 			return JSON.stringify({ success: false, code: 400, message: 'Za długi opis stylu.' });
 
-		if (typeof tech_requirements == 'object')
+		if (tech_requirements?.constructor === Object)
 		{
 			/** @type {number[]} */
 			const array = [];
@@ -192,7 +192,7 @@ export default async (/** @type {string} */ json) =>
 		if (tech_requirements_others !== null && tech_requirements_others.length > 250)
 			return JSON.stringify({ success: false, code: 400, message: 'Za długi opis innego sprzętu.' });
 
-		if (typeof trigger_list == 'object')
+		if (trigger_list?.constructor === Object)
 		{
 			/** @type {number[]} */
 			const array = [];
@@ -206,7 +206,7 @@ export default async (/** @type {string} */ json) =>
 		else
 			trigger_list = [];
 
-		if (typeof accessability == 'object')
+		if (accessability?.constructor === Object)
 		{
 			/** @type {number[]} */
 			const array = [];
@@ -220,7 +220,7 @@ export default async (/** @type {string} */ json) =>
 		else
 			accessability = [];
 
-		if (typeof preference_time == 'object')
+		if (preference_time?.constructor === Object)
 		{
 			/** @type {number[]} */
 			const array = [];
