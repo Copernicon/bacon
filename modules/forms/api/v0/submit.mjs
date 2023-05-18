@@ -182,12 +182,12 @@ export default async (/** @type {string} */ json) =>
 
 			for (let i = 1; i <= 7; ++i)
 				if (tech_requirements[i] == '1')
-					array.push(1);
+					array.push(i);
 
-			tech_requirements = array;
+			tech_requirements = JSON.stringify(array);
 		}
 		else
-			tech_requirements = [];
+			tech_requirements = '[]';
 
 		if (tech_requirements_others !== null && tech_requirements_others.length > 250)
 			return JSON.stringify({ success: false, code: 400, message: 'Za długi opis innego sprzętu.' });
@@ -199,12 +199,12 @@ export default async (/** @type {string} */ json) =>
 
 			for (let i = 1; i <= 13; ++i)
 				if (trigger_list[i] == '1')
-					array.push(1);
+					array.push(i);
 
-			trigger_list = array;
+			trigger_list = JSON.stringify(array);
 		}
 		else
-			trigger_list = [];
+			trigger_list = '[]';
 
 		if (accessability?.constructor === Object)
 		{
@@ -213,12 +213,12 @@ export default async (/** @type {string} */ json) =>
 
 			for (let i = 1; i <= 8; ++i)
 				if (accessability[i] == '1')
-					array.push(1);
+					array.push(i);
 
-			accessability = array;
+			accessability = JSON.stringify(array);
 		}
 		else
-			accessability = [];
+			accessability = '[]';
 
 		if (preference_time?.constructor === Object)
 		{
@@ -227,12 +227,12 @@ export default async (/** @type {string} */ json) =>
 
 			for (let i = 1; i <= 7; ++i)
 				if (preference_time[i] == '1')
-					array.push(1);
+					array.push(i);
 
-			preference_time = array;
+			preference_time = JSON.stringify(array);
 		}
 		else
-			preference_time = [];
+			preference_time = '[]';
 
 		if (preferences_additional !== null && preferences_additional.length > 250)
 			return JSON.stringify({ success: false, code: 400, message: 'Za długi opis dostępności czasowej.' });
