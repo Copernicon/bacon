@@ -108,7 +108,8 @@
 		}
 		```
 
-- `tokenSize` — The length of tokens and activation codes (`uint`, default: `128`).
+- `interactive` — Enables the application interactivity mode (`boolean`, default: `true`).
+- `autorestart` — Restarts the application on each error instead of on the level 3 reset system error code only (`boolean`, default: `true`).
 
 > Full data file path:
 > - [`/core/backend/data/server.json`](/modules/core/backend/data/server.json)

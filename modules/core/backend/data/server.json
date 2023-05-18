@@ -39,5 +39,7 @@
 		"svg": "image/svg+xml",
 		"webp": "image/webp"
 	},
+	"interactive": true,
+	"autorestart": true,
 	"tokenSize": 128
 }

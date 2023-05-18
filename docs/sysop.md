@@ -127,11 +127,21 @@ Bacon `npm` commands.
 - Stop: `npm stop`
 
 ## Interactivity
-Bacon is an interactive application that utilizes a [cluster](https://nodejs.org/api/cluster.html) to fork itself upon restart.
+Bacon application is interactive if the `interactive` option is enabled.
 
+> Related data entry:
+> - `interactive` at [`/core/backend/data/server.json`](/modules/core/backend/data/server.json)
+
+### Options
 Restart
 - Pressing `R` restarts the application.
 - Sending a level 3 reset system error code, *ie* `47`, restarts the application.
 
 Quit
 - Pressing `Q` quits the application.
+
+## Cluster
+Bacon utilizes a [cluster](https://nodejs.org/api/cluster.html) to fork itself upon restart, or upon an error if the `autorestart` option is enabled.
+
+> Related data entry:
+> - `autorestart` at [`/core/backend/data/server.json`](/modules/core/backend/data/server.json)

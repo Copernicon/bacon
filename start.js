@@ -2,6 +2,7 @@ import cluster from 'node:cluster';
 import process from 'node:process';
 import Application from '/core/backend/scripts/classes/Application.mjs';
 import Console from '/core/backend/scripts/interfaces/Console.mjs';
+import server from '/core/backend/data/server.json' assert { type: 'json' };
 
 /** The level 3 reset system error code. */
 const resetCode = 47;
@@ -9,35 +10,38 @@ const resetCode = 47;
 if (cluster.isPrimary)
 {
 	cluster.fork();
-	cluster.on('exit', ({}, code) => void (code == resetCode && cluster.fork()));
+	cluster.on('exit', ({}, code) => void ((server.autorestart ? code : code == resetCode) && cluster.fork()));
 }
 else
 {
-	process.stdin.setRawMode(true);
-	process.stdin.on('data', async data =>
+	if (server.interactive)
 	{
-		const key = data.toString();
-
-		switch (key)
+		process.stdin.setRawMode(true);
+		process.stdin.on('data', async data =>
 		{
-			// exit
-			case 'q':
+			const key = data.toString();
 
-				Console.title('Stop');
-				Console.warn('Bacon is stopping.');
-				await Application.stop.run();
-				Console.title('Goodbye');
-				process.exit(0);
+			switch (key)
+			{
+				// exit
+				case 'q':
 
-			// restart
-			case 'r':
+					Console.title('Stop');
+					Console.warn('Bacon is stopping.');
+					await Application.stop.run();
+					Console.title('Goodbye');
+					process.exit(0);
 
-				Console.title('Restart');
-				Console.warn('Bacon is restarting.');
-				await Application.stop.run();
-				process.exit(resetCode);
-		}
-	});
+				// restart
+				case 'r':
+
+					Console.title('Restart');
+					Console.warn('Bacon is restarting.');
+					await Application.stop.run();
+					process.exit(resetCode);
+			}
+		});
+	}
 
 	await Application.start.run();
 }
