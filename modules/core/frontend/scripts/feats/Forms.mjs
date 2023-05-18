@@ -207,7 +207,17 @@ export default class Forms
 
 			const data = JSON.stringify(object);
 			const response = await fetch(action, { method: method, body: data }).catch(() => {});
-			const code = `<code>${method} ${action}: ${response?.status} ${response?.statusText}</code>`;
+
+			/** @type {string[]} */
+			const details = [];
+
+			if (response?.status !== undefined)
+				details.push(String(response?.status));
+
+			if (response?.statusText !== undefined)
+				details.push(String(response?.statusText));
+
+			const code = `<code>${method} ${action}${details.length ? ': ' + details.join(' ') : ''}</code>`;
 			const successMessage = `Zapytanie powiodło się. ${code}`;
 			const errorMessage = `Zapytanie nie powiodło się. ${code}`;
 
