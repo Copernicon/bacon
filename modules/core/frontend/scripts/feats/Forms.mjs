@@ -124,13 +124,13 @@ export default class Forms
 		if (!(output instanceof HTMLOutputElement))
 			return;
 
-		output.replaceChildren();
-		output.classList.remove('green', 'red');
-		output.classList.add('loading');
-
 		form.addEventListener('submit', async event =>
 		{
 			event.preventDefault();
+
+			output.replaceChildren();
+			output.classList.remove('green', 'red');
+			output.classList.add('loading');
 
 			/** @type {Object.<string, *>} */
 			const object = {};
