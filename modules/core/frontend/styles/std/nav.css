@@ -116,6 +116,7 @@
 	{
 		/* Layout */
 		display: inline;
+		flex-shrink: 0;
 
 		/* Overflow */
 		overflow: hidden;
