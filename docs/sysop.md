@@ -42,7 +42,7 @@ Bacon configuration.
 1. Create an SQL database for Bacon to store data.
 
 	- Character set: `utf8`
-	- Collation: `utf8_unicode_ci`
+	- Collation: `utf8_unicode_ci` (`utf8mb3_unicode_ci`)
 
 	<br>
 
