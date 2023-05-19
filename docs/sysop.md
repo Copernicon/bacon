@@ -33,7 +33,6 @@ Requirements installation.
 
 	```bash
 	git clone https://github.com/Copernicon/bacon.git .
-	npm install --save-dev eslint@latest @babel/core@latest
 	npm install
 	```
 
