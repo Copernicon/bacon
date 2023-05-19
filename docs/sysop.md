@@ -68,7 +68,7 @@ Bacon configuration.
 
 	<br>
 
-1. Enable mysql event scheduler.
+1. Enable the mysql event scheduler.
 
 	```sql
 	SET GLOBAL event_scheduler = ON;
