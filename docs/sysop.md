@@ -121,9 +121,8 @@ npm start
 ## Commands
 Bacon `npm` commands.
 
-- Install: `npm install bacon`
+- Install: `npm install`
 - Start: `npm start`
-- Stop: `npm stop`
 
 ## Interactivity
 Bacon application is interactive if the `interactive` option is enabled.

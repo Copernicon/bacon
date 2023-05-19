@@ -1,2 +1,2 @@
 #!/bin/bash
-node --no-warnings --loader ./loader.mjs start.js bacon
+node --no-warnings --loader ./loader.mjs app.js bacon

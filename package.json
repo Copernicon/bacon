@@ -1,6 +1,6 @@
 {
 	"type": "module",
-	"main": "start.js",
+	"main": "app.js",
 	"name": "@copernicon/bacon",
 	"description": "Bezpieczniejsza Administracja Konwentami",
 	"author": "Benio",
@@ -40,7 +40,6 @@
 	},
 	"scripts": {
 		"preinstall": "npm install --save-dev eslint@latest @babel/core@latest",
-		"start": "node --no-warnings --loader ./loader.mjs start.js bacon",
-		"stop": "node stop.js"
+		"start": "node --no-warnings --loader ./loader.mjs app.js bacon"
 	}
 }

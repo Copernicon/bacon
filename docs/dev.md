@@ -2,13 +2,13 @@
 Documentation for programmers.
 
 ## Start
-Bacon should start by `npm start` command, which runs the [`start.js`](/start.js) using [`loader.mjs`](/loader.mjs) [loader](https://nodejs.org/api/esm.html#loaders).
+Bacon should start by `npm start` command, which runs the [`app.js`](/app.js) using [`loader.mjs`](/loader.mjs) [loader](https://nodejs.org/api/esm.html#loaders).
 
 ## Modules
 Bacon's functionality is split into modules.
 Modules are directories with files, distributed as zipped files.
 File [`modules.json`](/modules/core/backend/data/modules.json) contains a list of enabled modules.
-Enabled modules are loaded from the [`start.js`](/start.js).
+Enabled modules are loaded from the [`app.js`](/app.js).
 
 - Modules must have unique names.
 - Modules must derive from the [`Module`](/modules/core/backend/scripts/classes/Module.mjs) class.
