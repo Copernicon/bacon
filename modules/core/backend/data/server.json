@@ -9,8 +9,8 @@
 		"enabled": true,
 		"host": "localhost",
 		"port": 2137,
-		"cert": "/core/backend/data/pem/cert.pem",
-		"key": "/core/backend/data/pem/key.pem"
+		"cert": "./core/backend/data/pem/cert.pem",
+		"key": "./core/backend/data/pem/key.pem"
 	},
 	"extensions": {
 		"json": "application/json",

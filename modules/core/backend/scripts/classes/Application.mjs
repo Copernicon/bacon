@@ -813,8 +813,18 @@ export default class Application
 			Application.#HTTPSServer = https.createServer
 			(
 				{
-					cert: fs.readFileSync(fs.realpathSync('./modules' + server.https.cert)),
-					key: fs.readFileSync(fs.realpathSync('./modules' + server.https.key)),
+					cert: fs.readFileSync
+					(
+							server.https.cert.startsWith('.')
+						?	fs.realpathSync('./modules' + server.https.cert.substring(1))
+						:	server.https.cert
+					),
+					key: fs.readFileSync
+					(
+							server.https.key.startsWith('.')
+						?	fs.realpathSync('./modules' + server.https.key.substring(1))
+						:	server.https.key
+					)
 				},
 
 				async (request, response) =>
