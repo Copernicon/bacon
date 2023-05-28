@@ -1,0 +1,23 @@
+version: "3.7"
+
+services:
+  db:
+    image: mysql:5.7
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - '3306:3306'
+    volumes:
+      - my-db:/var/lib/mysql
+      - ./init-scripts:/docker-entrypoint-initdb.d
+  email:
+    image: marcopas/docker-mailslurper
+    ports:
+      - '2500:2500'
+      - '9090:8080'
+      - '8085:8085'
+volumes:
+  my-db:
+    name: mysql57
