@@ -35,11 +35,12 @@
 		"ws": "^8.13.0"
 	},
 	"devDependencies": {
+		"@babel/core": "^7.22.1",
 		"@babel/eslint-parser": "^7.21.3",
-		"@babel/plugin-syntax-import-assertions": "^7.20.0"
+		"@babel/plugin-syntax-import-assertions": "^7.20.0",
+		"eslint": "^8.41.0"
 	},
 	"scripts": {
-		"preinstall": "npm install --save-dev eslint@latest @babel/core@latest",
 		"start": "node --no-warnings --loader ./loader.mjs app.js bacon"
 	}
 }
