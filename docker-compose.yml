@@ -11,7 +11,14 @@ services:
       - '3306:3306'
     volumes:
       - my-db:/var/lib/mysql
-      - ./init-scripts:/docker-entrypoint-initdb.d
+      - ./db-init-scripts:/docker-entrypoint-initdb.d
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - '8181:80'
+    environment:
+      - PMA_ARBITRARY=1
   email:
     image: marcopas/docker-mailslurper
     ports:
