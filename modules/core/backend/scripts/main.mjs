@@ -83,6 +83,7 @@ export default class Core extends Module
 		Resources.addScript('/core/frontend/scripts/feats/Login.mjs');
 		Resources.addScript('/core/frontend/scripts/feats/Menu.mjs');
 		Resources.addScript('/core/frontend/scripts/feats/Projects.mjs');
+		Resources.addScript('/core/frontend/scripts/feats/ShowAndHide.mjs');
 		Resources.addScript('/core/frontend/scripts/feats/User.mjs');
 	}
 
