@@ -11,6 +11,7 @@ import Forms from '/core/frontend/scripts/feats/Forms.mjs';
 		firstName: string?,
 		nickName: string?,
 		lastName: string?,
+		logo: string?,
 	}} LoginData
 	A user login data.
 
@@ -22,6 +23,7 @@ import Forms from '/core/frontend/scripts/feats/Forms.mjs';
 	- `firstName` — The user's first name.
 	- `nickName` — The user's nick name.
 	- `lastName` — The user's last name.
+	- `logo` — The user's logo address.
 
 	Related event:
 	- {@link Login.login `Login.login`}
@@ -84,6 +86,7 @@ export default class Login
 					firstName: response.json.first_name ?? null,
 					nickName: response.json.nick_name ?? null,
 					lastName: response.json.last_name ?? null,
+					logo: response.json.logo ?? null,
 				});
 
 				break;

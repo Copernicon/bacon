@@ -33,6 +33,12 @@ export default class User
 	*/
 	static #lastName = null;
 
+	/**
+		The user's logo address if the user is logged in xor `null` otherwise.
+		@type {string?}
+	*/
+	static #logo = null;
+
 	/** Gets the user's identifier if the user is logged in xor `null` otherwise. */
 	static get user() { return User.#user; }
 
@@ -47,6 +53,9 @@ export default class User
 
 	/** Gets the user's last name if the user is logged in xor `null` otherwise. */
 	static get lastName() { return User.#lastName; }
+
+	/** Gets the user's logo address if the user is logged in xor `null` otherwise. */
+	static get logo() { return User.#logo; }
 
 	/**
 		Gets the user's display name if the user is logged in xor `null` otherwise.
@@ -89,6 +98,7 @@ export default class User
 		User.#firstName = sessionStorage.getItem('core/user/first-name');
 		User.#nickName = sessionStorage.getItem('core/user/nick-name');
 		User.#lastName = sessionStorage.getItem('core/user/last-name');
+		User.#logo = sessionStorage.getItem('core/user/logo');
 	}
 
 	/** Stores the user session data in both {@link User `User`} members and the {@link sessionStorage `sessionStorage`}. */
@@ -99,6 +109,7 @@ export default class User
 		User.#firstName = data.firstName;
 		User.#nickName = data.nickName;
 		User.#lastName = data.lastName;
+		User.#logo = data.logo;
 
 		sessionStorage.setItem('core/user/id', data.user.toString());
 		sessionStorage.setItem('core/user/login', data.login);
@@ -111,6 +122,9 @@ export default class User
 
 		if (data.lastName)
 			sessionStorage.setItem('core/user/last-name', data.lastName);
+
+		if (data.logo)
+			sessionStorage.setItem('core/user/logo', data.logo);
 	}
 
 	/** Removes the user session data from both {@link User `User`} members and the {@link sessionStorage `sessionStorage`}. */
@@ -121,8 +135,9 @@ export default class User
 		User.#firstName = null;
 		User.#nickName = null;
 		User.#lastName = null;
+		User.#logo = null;
 
-		for (const key of ['id', 'login', 'first-name', 'nick-name', 'last-name'])
+		for (const key of ['id', 'login', 'first-name', 'nick-name', 'last-name', 'logo'])
 			sessionStorage.removeItem(`core/user/${key}`);
 	}
 }

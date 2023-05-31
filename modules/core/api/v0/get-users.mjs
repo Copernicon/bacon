@@ -19,7 +19,7 @@ export default async (/** @type {string} */ json) =>
 	if (user === null)
 		return JSON.stringify({ success: false, code: 401, message: 'Tożsamość zweryfikowana negatywnie.' });
 
-	const select = await SQL.select('SELECT id, first_name, nick_name, last_name FROM users WHERE searchable = 1 AND active = 1 AND banned = 0');
+	const select = await SQL.select('SELECT id, first_name, nick_name, last_name, logo FROM users WHERE searchable = 1 AND active = 1 AND banned = 0');
 
 	if (select === null)
 		return JSON.stringify({ success: false, code: 500, message: '<mark>Backend/SQL</mark> Błąd pobierania danych.' });
@@ -30,7 +30,7 @@ export default async (/** @type {string} */ json) =>
 	const users = [];
 
 	for (const entry of Object.values(select))
-		users.push({ id: entry.id, first_name: entry.first_name, nick_name: entry.nick_name, last_name: entry.last_name });
+		users.push({ id: entry.id, first_name: entry.first_name, nick_name: entry.nick_name, last_name: entry.last_name, logo: entry.logo });
 
 	return JSON.stringify({ success: true, users });
 };
