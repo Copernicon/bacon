@@ -47,7 +47,7 @@ export default class Cookies
 	static set(name, value, persistent = false)
 	{
 		if (persistent)
-			document.cookie = `${name}=${value};path=/;samesite=strict;max-age=${60 * 60 * 24 * 365 * 12}`;
+			document.cookie = `${name}=${value};path=/;samesite=strict;max-age=${60 ** 2 * 24 * 365 * 12}`;
 		else
 			document.cookie = `${name}=${value};path=/;samesite=strict`;
 	}
