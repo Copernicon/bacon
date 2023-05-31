@@ -30,6 +30,12 @@ export default class Menu
 	*/
 	static hide = new HookableEvent();
 
+	/**
+		Updates the menu.
+		@type {HookableEvent<[]>}
+	*/
+	static update = new HookableEvent();
+
 	/** Hooks buttons that show or hide the menu. */
 	static hookButtons()
 	{
@@ -42,16 +48,17 @@ export default class Menu
 	{
 		Menu.show.imp(Menu.#show);
 		Menu.hide.imp(Menu.#hide);
+		Menu.update.imp(Menu.#update);
 
 		Navigation.goto.pre(Menu.#updateLoadingEntry);
 		Navigation.goto.post(Menu.#updateActiveEntry);
 		Navigation.goto.post(() => void (document.body.offsetWidth < 720 && Menu.hide.run()));
 
-		Login.login.post(Menu.#update);
+		Login.login.post(() => Menu.update.run());
 		Login.login.post(Menu.#sessionate);
-		Login.logout.post(Menu.#update);
+		Login.logout.post(() => Menu.update.run());
 		Login.logout.post(Menu.#unsessionate);
-		Login.restore.post(Menu.#update);
+		Login.restore.post(() => Menu.update.run());
 		Login.restore.post(Menu.#sessionate);
 
 		Menu.hookButtons();
