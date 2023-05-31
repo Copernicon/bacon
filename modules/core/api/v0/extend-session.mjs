@@ -29,7 +29,7 @@ export default async (/** @type {string} */ json) =>
 		return JSON.stringify({ success: false, code: 400, message: 'Sesja wygasła.' });
 
 	const newToken = cryptoRandomString({ length: server.tokenSize, type: 'alphanumeric' });
-	const newExpiration = new Date(Date.now() + 1000 * 60 * 60);
+	const newExpiration = new Date(Date.now() + 1000 * 60 ** 2);
 
 	const success = await SQL.transaction(
 	[
