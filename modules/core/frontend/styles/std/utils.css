@@ -88,4 +88,76 @@
 	{
 		align-self: flex-end;
 	}
+
+	.red
+	{
+		/* Appearance */
+		color: var(--app-color-red-80);
+	}
+
+	.orange
+	{
+		/* Appearance */
+		color: var(--app-color-orange-80);
+	}
+
+	.yellow
+	{
+		/* Appearance */
+		color: var(--app-color-yellow-80);
+	}
+
+	.lime
+	{
+		/* Appearance */
+		color: var(--app-color-lime-80);
+	}
+
+	.green
+	{
+		/* Appearance */
+		color: var(--app-color-green-80);
+	}
+
+	.turquoise
+	{
+		/* Appearance */
+		color: var(--app-color-turquoise-80);
+	}
+
+	.cyan
+	{
+		/* Appearance */
+		color: var(--app-color-cyan-80);
+	}
+
+	.blue
+	{
+		/* Appearance */
+		color: var(--app-color-blue-80);
+	}
+
+	.violet
+	{
+		/* Appearance */
+		color: var(--app-color-violet-80);
+	}
+
+	.purple
+	{
+		/* Appearance */
+		color: var(--app-color-purple-80);
+	}
+
+	.magenta
+	{
+		/* Appearance */
+		color: var(--app-color-magenta-80);
+	}
+
+	.rose
+	{
+		/* Appearance */
+		color: var(--app-color-rose-80);
+	}
 }
