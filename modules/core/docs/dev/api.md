@@ -132,7 +132,7 @@ Log–ins a user.
 <br>
 
 ### `POST /core/api/v0/logout`
-Log–outs a user.
+Logouts a user.
 
 > <br>
 >
@@ -156,7 +156,7 @@ Log–outs a user.
 <br>
 
 ### `POST /core/api/v0/validate-session`
-Validates a user session (checks if `token` is valid and not expired).
+Validates a user session (checks if the `token` is valid and not expired).
 
 > <br>
 >
@@ -184,7 +184,7 @@ Validates a user session (checks if `token` is valid and not expired).
 <br>
 
 ### `POST /core/api/v0/validate-project`
-Validates a user project (checks if user joined the project).
+Validates a user project (checks if the user joined the project).
 
 > <br>
 >
@@ -322,7 +322,7 @@ Gets all projects the user joined to.
 
 #### `action: list available`
 Gets all projects the user has access to.
-- Returns all projects if a user has the `projects/list` permission.
+- Returns all projects if the user has the `projects/list` permission.
 - Returns user projects only otherwise.
 
 > <br>
@@ -382,7 +382,7 @@ Adds a project.
 <br>
 
 #### `action: remove`
-Removes a project.
+Removes the project.
 
 > <br>
 >
