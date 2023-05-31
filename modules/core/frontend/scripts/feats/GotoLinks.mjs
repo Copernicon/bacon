@@ -6,6 +6,10 @@ import Navigation from '/core/frontend/scripts/interfaces/Navigation.mjs';
 	- Sets the `data-goto-hooked` attribute to affected links.
 
 	1. Except if they have any of the following classes: `disabled`, `active`.
+
+	@note
+	- Local links (without `://`) are handled with the {@link Navigation.goto `Navigation.goto`}.
+	- External links are handled by setting the `document.location.href`.
 */
 export default class GotoLinks
 {
@@ -46,7 +50,15 @@ export default class GotoLinks
 				if (element.classList.contains(className))
 					return;
 
-			Navigation.goto.run({ path: String(element.getAttribute('data-goto')) });
+			const path = String(element.getAttribute('data-goto'));
+
+			if (path.includes('://'))
+			{
+				document.location.href = path;
+				return;
+			}
+
+			Navigation.goto.run({ path });
 		});
 
 		element.setAttribute('data-goto-hooked', '');
