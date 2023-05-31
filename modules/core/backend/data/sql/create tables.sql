@@ -106,7 +106,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `login` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(128) COLLATE utf8_unicode_ci NULL,
   `first_name` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL,
   `nick_name` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL,
   `last_name` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL,
