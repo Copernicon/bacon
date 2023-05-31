@@ -6,6 +6,17 @@
 > Full data file path:
 > - [`/core/shared/data/app.json`](/modules/core/shared/data/app.json)
 
+## `auth.json` (backend)
+- `methods` — An object with the following property:
+	- `email` — An object with the following properties:
+		- `register` (`boolean`, default: `true`) <br>
+			Indicates if e-mail registration is enabled.
+		- `login` (`boolean`, default: `true`) <br>
+			Indicates if e-mail login is enabled.
+
+> Full data file path:
+> - [`/core/backend/data/auth.json`](/modules/core/backend/data/auth.json)
+
 ## 🔒 `database.json` (backend)
 - `host` — Database hostname (`string`, default: `localhost`)
 - `user` — Database username (`string`, default: `bacon`)

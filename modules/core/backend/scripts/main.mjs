@@ -1,6 +1,8 @@
 import fs from 'node:fs';
 import Module from '/core/backend/scripts/bases/Module.mjs';
 import SQL from '/core/backend/scripts/interfaces/SQL.mjs';
+import Login from '/core/backend/scripts/classes/Login.mjs';
+import Register from '/core/backend/scripts/classes/Register.mjs';
 import Resources from '/core/backend/scripts/classes/Resources.mjs';
 import noexcept from '/core/shared/scripts/utils/noexcept.mjs';
 import app from '/core/shared/data/app.json' assert { type: 'json' };
@@ -35,6 +37,8 @@ export default class Core extends Module
 		Core.#addBodyHTML();
 		Core.#addHeaderButtons();
 		Core.#addMenu();
+		Core.#addRegisterMethods();
+		Core.#addLoginMethods();
 	}
 
 	static #addHeadHTML()
@@ -161,6 +165,16 @@ export default class Core extends Module
 			icon: '/core/frontend/icons/post-add.svg',
 			permissions: {module: 'core', name: 'session'}
 		});
+	}
+
+	static #addRegisterMethods()
+	{
+		Register.addMethod({ name: 'E-mail', logo: '/core/frontend/icons/email.svg', target: 'core/register-email' });
+	}
+
+	static #addLoginMethods()
+	{
+		Login.addMethod({ name: 'E-mail', logo: '/core/frontend/icons/email.svg', target: 'core/login-email' });
 	}
 
 	// @ts-ignore

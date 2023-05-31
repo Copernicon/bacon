@@ -1,0 +1,56 @@
+<section>
+	<h1>Rejestracja (Google)</h1>
+	<form method="post" action="/sign-with-google/api/v0/register-google" id="sign-with-google/register-google">
+		<form-row>
+			<form-column>
+				<div>
+					<span><label for="code"><span class="red">*</span> Kod uwierzytelniający <small>Google</small></label></span>
+					<span><input name="code" type="password" required readonly tabindex="-1"></span>
+				</div>
+				<div>
+					<span><label for="login"><span class="red">*</span> Login <small>Twoja ksywka w aplikacji</small></label></span>
+					<span>
+						<input name="login" type="text" pattern="(?:[\p{L}\p{N}]+(?:[_\-]?[\p{L}\p{N}]+)*){3,64}" minlength="3" maxlength="64" required>
+					</span>
+				</div>
+			</form-column>
+			<form-column>
+				<div>
+					<span><label for="nick_name">Ksywka <small>Twoja ksywka w realu</small></label></span>
+					<span><input name="nick_name" type="text" pattern="(?:[\p{L}\p{N}]+(?:[ \-]?[\p{L}\p{N}]+)*){1,64}" maxlength="64"></span>
+				</div>
+				<div>
+					<span><label for="phone">Numer telefonu <small>Domyślnie +48 (Polska)</small></label></span>
+					<span><input name="phone" type="tel" pattern="(?:\+[1-9])?[\d \-]+" maxlength="32"></span>
+				</div>
+			</form-column>
+			<form-column>
+				<div><span><span class="red">*</span> Polityka prywatności</span></div>
+				<div>
+					<span>
+						<input type="checkbox" data-required="Zgoda dobrowolna, acz wymagana.">
+						<small class="input-info">
+							Wyrażam zgodę na przetwarzanie moich danych osobowych w celach opisanych w
+							publicznie dostępnej <a href="/core/privacy_policy">Polityce Prywatności</a>.
+						</small>
+					</span>
+				</div>
+				<div>
+					<span><label for="searchable">Zgoda na wyszukiwanie</label></span>
+					<span>
+						<input type="checkbox" name="searchable"></input>
+						<small class="input-info">
+							Wyrażam zgodę na udostępnienie innym użytkownikom mojego imienia, nazwiska, ksywki oraz zdjęcia celem odnalezienia.
+						</small>
+					</span>
+				</div>
+			</form-column>
+		</form-row>
+		<form-row>
+			<form-column>
+				<button type="submit"><img class="icon" src="/core/frontend/icons/register.svg" width="24" height="24"> Zarejestruj</button>
+			</form-column>
+		</form-row>
+		<output for="sign-with-google/register-google" hidden></output>
+	</form>
+</section>

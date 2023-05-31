@@ -1,0 +1,19 @@
+<section>
+	<h1>Logowanie (Google)</h1>
+	<form method="post" action="/sign-with-google/api/v0/login-google" id="sign-with-google/login-google">
+		<form-row>
+			<form-column>
+				<div>
+					<span><label for="code"><span class="red">*</span> Kod uwierzytelniający <small>Google</small></label></span>
+					<span><input name="code" type="password" required readonly tabindex="-1"></span>
+				</div>
+			</form-column>
+		</form-row>
+		<form-row>
+			<form-column>
+				<button type="submit"><img class="icon" src="/core/frontend/icons/login.svg" width="24" height="24"> Zaloguj</button>
+			</form-column>
+		</form-row>
+		<output for="sign-with-google/login-google" hidden></output>
+	</form>
+</section>

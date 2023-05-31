@@ -39,7 +39,8 @@ If the request did not succeeded, additional property is available:
 
 ## End–points
 ### `POST /core/api/v0/register`
-Registers a new user account, then send an e-mail with an activation link.
+#### `action: get methods`
+Gets a list of login methods.
 
 > <br>
 >
@@ -48,17 +49,51 @@ Registers a new user account, then send an e-mail with an activation link.
 >	✳️ No token is required. <br>
 >	🧿 No project id is required.
 >
-> 	Property         | Type
-> 	--------         | ----
->	`login`          | `string`, 3 – 64 chars, `/^(?:[\p{L}\p{N}]+(?:[_-]?[\p{L}\p{N}]+)*){3,64}$/u`           | The user login.
->	`email`          | `string`, 3 – 128 chars, `/.@./u`                                                       | The user email.
->	`password`       | `string`, 16 – 128 chars                                                                | The user password.
-> 	`first_name`     | `null` \| `string`, 1 – 64 chars, `/^(?:[\p{L}\p{N}]+(?:[ -]?[\p{L}\p{N}]+)*){1,64}$/u` | The user first name.
-> 	`nick_name`      | `null` \| `string`, 1 – 64 chars, `/^(?:[\p{L}\p{N}]+(?:[ -]?[\p{L}\p{N}]+)*){1,64}$/u` | The user nick name.
-> 	`last_name`      | `null` \| `string`, 1 – 64 chars, `/^(?:[\p{L}\p{N}]+(?:[ -]?[\p{L}\p{N}]+)*){1,64}$/u` | The user last name.
-> 	`phone`          | `null` \| `string`, 0 – 32 chars, `/^(?:\+[1-9])?[\d \-]+$/u`                           | The user phone.
->	`logo`           | `null \| string`, base64 encoded file                                                   | The project logo.
->	`logo_extension` | `null \| string`                                                                        | The project logo extension.
+> 	Property | Type
+> 	-------- | ----
+>	`action` | `get methods`
+>
+> - Required permissions
+>
+>	✳️ No permissions are required.
+>
+> - Response
+>
+> 	Property  | Type    | Description
+> 	--------  | ----    | -----------
+>	`methods` | `array` | *See the table below.*
+>
+> 	Property | Type               | Description                | Example
+> 	-------- | ----               | -----------                | -------
+>	`name`   | `string`           | The method name.           | `E–mail`
+> 	`logo`   | `null` \| `string` | The method logo address.   | `/core/frontend/icons/email.svg`
+> 	`target` | `string`           | The method target address. | `core/register-email`
+>
+> <br>
+<br>
+
+### `POST /core/api/v0/register-email`
+Registers a new user account, then sends an e-mail with an activation link.
+
+> <br>
+>
+> - Request
+>
+>	✳️ No token is required. <br>
+>	🧿 No project id is required.
+>
+> 	Property         | Type                                    | Regex                                                 | Description
+> 	--------         | ----                                    | -----                                                 | -----------
+>	`login`          | `string`, 3 – 64 chars                  | `/^(?:[\p{L}\p{N}]+(?:[_-]?[\p{L}\p{N}]+)*){3,64}$/u` | The user login.
+>	`email`          | `string`, 3 – 128 chars                 | `/.@./u`                                              | The user email.
+>	`password`       | `string`, 16 – 128 chars                |                                                       | The user password.
+> 	`first_name`     | `null` \| `string`, 1 – 64 chars        | `/^(?:[\p{L}\p{N}]+(?:[ -]?[\p{L}\p{N}]+)*){1,64}$/u` | The user first name.
+> 	`nick_name`      | `null` \| `string`, 1 – 64 chars        | `/^(?:[\p{L}\p{N}]+(?:[ -]?[\p{L}\p{N}]+)*){1,64}$/u` | The user nick name.
+> 	`last_name`      | `null` \| `string`, 1 – 64 chars        | `/^(?:[\p{L}\p{N}]+(?:[ -]?[\p{L}\p{N}]+)*){1,64}$/u` | The user last name.
+> 	`phone`          | `null` \| `string`, 1 – 32 chars        | `/^(?:\+[1-9])?[\d \-]+$/u`                           | The user phone.
+>	`logo`           | `null` \| `string`, base64 encoded file |                                                       | The project logo.
+>	`logo_extension` | `null` \| `string`                      |                                                       | The project logo extension.
+>	`searchable`     | `uint(1)`                               |                                                       | Indicates if the user is searchable.
 >
 > - Required permissions
 >
@@ -98,7 +133,41 @@ Activates a user account (`user` and `code` are sent via e-mail upon registratio
 <br>
 
 ### `POST /core/api/v0/login`
-Log–ins a user.
+#### `action: get methods`
+Gets a list of login methods.
+
+> <br>
+>
+> - Request
+>
+>	✳️ No token is required. <br>
+>	🧿 No project id is required.
+>
+> 	Property | Type
+> 	-------- | ----
+>	`action` | `get methods`
+>
+> - Required permissions
+>
+>	✳️ No permissions are required.
+>
+> - Response
+>
+> 	Property  | Type    | Description
+> 	--------  | ----    | ---
+>	`methods` | `array` | *See the table below.*
+>
+> 	Property | Type               | Description                | Example
+> 	-------- | ----               | -----------                | -------
+>	`name`   | `string`           | The method name.           | `E–mail`
+> 	`logo`   | `null` \| `string` | The method logo address.   | `/core/frontend/icons/email.svg`
+> 	`target` | `string`           | The method target address. | `core/login-email`
+>
+> <br>
+<br>
+
+### `POST /core/api/v0/login-email`
+Logins a user using *Login & Password*.
 
 > <br>
 >
