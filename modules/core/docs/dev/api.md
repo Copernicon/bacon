@@ -107,10 +107,10 @@ Log–ins a user.
 >	✳️ No token is required. <br>
 >	🧿 No project id is required.
 >
-> 	Property   | Type                                                                          | Description
-> 	--------   | ----                                                                          | ---
->	`login`    | `string`, 3 – 64 chars, `/^(?:[\p{L}\p{N}]+(?:[_-]?[\p{L}\p{N}]+)*){3,64}$/u` | The user login.
->	`password` | `string`, 16 – 128 chars                                                      | The user password.
+> 	Property   | Type                     | Regex                                                 | Description
+> 	--------   | ----                     | -----                                                 | -----------
+>	`login`    | `string`, 3 – 64 chars   | `/^(?:[\p{L}\p{N}]+(?:[_-]?[\p{L}\p{N}]+)*){3,64}$/u` | The user login.
+>	`password` | `string`, 16 – 128 chars |                                                       | The user password.
 >
 > - Required permissions
 >
@@ -118,15 +118,16 @@ Log–ins a user.
 >
 > - Response
 >
-> 	Property     | Type                                                                                    | Description
-> 	--------     | ----                                                                                    | ---
->	`token`      | `string`, 128 alnum chars                                                               | The session token.
->	`expiration` | `time`                                                                                  | Session expiration time.
->	`user`       | `uint`                                                                                  | The user id.
->	`login`      | `string`, 3 – 64 chars, `/^(?:[\p{L}\p{N}]+(?:[_-]?[\p{L}\p{N}]+)*){3,64}$/u`           | The user login.
-> 	`first_name` | `null` \| `string`, 1 – 64 chars, `/^(?:[\p{L}\p{N}]+(?:[ -]?[\p{L}\p{N}]+)*){1,64}$/u` | The user first name.
-> 	`nick_name`  | `null` \| `string`, 1 – 64 chars, `/^(?:[\p{L}\p{N}]+(?:[ -]?[\p{L}\p{N}]+)*){1,64}$/u` | The user nick name.
-> 	`last_name`  | `null` \| `string`, 1 – 64 chars, `/^(?:[\p{L}\p{N}]+(?:[ -]?[\p{L}\p{N}]+)*){1,64}$/u` | The user last name.
+> 	Property     | Type                             | Regex                                                 | Description
+> 	--------     | ----                             | -----                                                 | -----------
+>	`token`      | `string`, 128 alnum chars        |                                                       | The session token.
+>	`expiration` | `time`                           |                                                       | Session expiration time.
+>	`user`       | `uint`                           |                                                       | The user id.
+>	`login`      | `string`, 3 – 64 chars           | `/^(?:[\p{L}\p{N}]+(?:[_-]?[\p{L}\p{N}]+)*){3,64}$/u` | The user login.
+> 	`first_name` | `null` \| `string`, 1 – 64 chars | `/^(?:[\p{L}\p{N}]+(?:[ -]?[\p{L}\p{N}]+)*){1,64}$/u` | The user first name.
+> 	`nick_name`  | `null` \| `string`, 1 – 64 chars | `/^(?:[\p{L}\p{N}]+(?:[ -]?[\p{L}\p{N}]+)*){1,64}$/u` | The user nick name.
+> 	`last_name`  | `null` \| `string`, 1 – 64 chars | `/^(?:[\p{L}\p{N}]+(?:[ -]?[\p{L}\p{N}]+)*){1,64}$/u` | The user last name.
+> 	`logo`       | `null` \| `string`               |                                                       | The user logo address.
 >
 > <br>
 <br>
@@ -460,12 +461,13 @@ Gets users that are searchable.
 > 	-------- | ----    | ---
 >	`users`  | `array` | *See the table below.*
 >
-> 	Property     | Type                                                                                    | Description
-> 	--------     | ----                                                                                    | ---
->	`id`         | `uint`                                                                                  | The user id.
-> 	`first_name` | `null` \| `string`, 1 – 64 chars, `/^(?:[\p{L}\p{N}]+(?:[ -]?[\p{L}\p{N}]+)*){1,64}$/u` | The user first name.
-> 	`nick_name`  | `null` \| `string`, 1 – 64 chars, `/^(?:[\p{L}\p{N}]+(?:[ -]?[\p{L}\p{N}]+)*){1,64}$/u` | The user nick name.
-> 	`last_name`  | `null` \| `string`, 1 – 64 chars, `/^(?:[\p{L}\p{N}]+(?:[ -]?[\p{L}\p{N}]+)*){1,64}$/u` | The user last name.
+> 	Property     | Type                             | Regex                                                 | Description
+> 	--------     | ----                             | -----                                                 | -----------
+>	`id`         | `uint`                           |                                                       | The user id.
+> 	`first_name` | `null` \| `string`, 1 – 64 chars | `/^(?:[\p{L}\p{N}]+(?:[ -]?[\p{L}\p{N}]+)*){1,64}$/u` | The user first name.
+> 	`nick_name`  | `null` \| `string`, 1 – 64 chars | `/^(?:[\p{L}\p{N}]+(?:[ -]?[\p{L}\p{N}]+)*){1,64}$/u` | The user nick name.
+> 	`last_name`  | `null` \| `string`, 1 – 64 chars | `/^(?:[\p{L}\p{N}]+(?:[ -]?[\p{L}\p{N}]+)*){1,64}$/u` | The user last name.
+> 	`logo`       | `null` \| `string`               |                                                       | The user logo address.
 >
 > <br>
 <br>
