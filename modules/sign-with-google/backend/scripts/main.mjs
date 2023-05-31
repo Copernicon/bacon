@@ -7,6 +7,7 @@ import Resources from '/core/backend/scripts/classes/Resources.mjs';
 import googleData from '/sign-with-google/shared/data/google.json' assert { type: 'json' };
 import app from '/core/shared/data/app.json' assert { type: 'json' };
 import server from '/core/backend/data/server.json' assert { type: 'json' };
+import pkg from '^/package.json' assert { type: 'json' };
 
 export default class SignWithGoogle extends Module
 {
@@ -22,7 +23,17 @@ export default class SignWithGoogle extends Module
 	{
 		const dependencies = ['googleapis'];
 
-		child_process.execSync(`npm i ${dependencies.join(' ')}`, { stdio: []});
+		/** @type {string[]} */
+		const dependenciesToInstall = [];
+
+		for (const dependency of dependencies) // @ts-ignore
+			if (pkg.dependencies[dependency] === undefined)
+				dependenciesToInstall.push(dependency);
+
+		if (dependenciesToInstall.length == 0)
+			return;
+
+		child_process.execSync(`npm i ${dependenciesToInstall.join(' ')}`, { stdio: []});
 
 		if (os.platform() == 'win32')
 			child_process.execSync(`title ${app.name}`, { stdio: []});
@@ -31,7 +42,6 @@ export default class SignWithGoogle extends Module
 	static #start()
 	{
 		SignWithGoogle.#addScripts();
-		SignWithGoogle.#addMenuEntries();
 		SignWithGoogle.#addRegisterMethods();
 		SignWithGoogle.#addLoginMethods();
 	}
@@ -39,17 +49,6 @@ export default class SignWithGoogle extends Module
 	static #addScripts()
 	{
 		Resources.addScript('/sign-with-google/frontend/scripts/feats/SignWithGoogle.mjs');
-	}
-
-	static #addMenuEntries()
-	{
-		Resources.addMenuEntry(
-		{
-			group: 'users',
-			name: 'sign-with-google',
-			text: 'Korzystaj z Google',
-			icon: '/sign-with-google/frontend/icons/external/google.80.svg'
-		});
 	}
 
 	static #addRegisterMethods()
