@@ -4,7 +4,7 @@ import Cookies from '/core/frontend/scripts/interfaces/Cookies.mjs';
 {
 	const projects = document.body.querySelector('#projects > output');
 
-	if (!projects)
+	if (!(projects instanceof HTMLElement))
 		return;
 
 	const token = Cookies.get('core/session/token');
