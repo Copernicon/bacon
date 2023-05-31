@@ -63,6 +63,7 @@
 	{
 		/* Layout */
 		display: flex;
+		flex-shrink: 0;
 
 		/* Direction */
 		flex-direction: row;

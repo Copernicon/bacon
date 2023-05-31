@@ -174,7 +174,25 @@
 		/* Appearance */
 		cursor: not-allowed;
 		user-select: none;
+	}
+
+	input:disabled
+	{
+		/* Appearance */
 		pointer-events: none;
+	}
+
+	input[readonly]
+	{
+		/* Appearance */
+		background-color: transparent;
+		outline: 1px dashed var(--app-color-purple-50);
+	}
+
+	input[readonly]:focus
+	{
+		/* Spacing */
+		border-color: transparent;
 	}
 
 	input:autofill,

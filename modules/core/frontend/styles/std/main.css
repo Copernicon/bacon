@@ -68,4 +68,13 @@
 		/* Spacing */
 		margin: clamp(0px, calc((100vw - 720px) / ((1080 - 720) / 22.5)), 16px);
 	}
+
+	main > section > p > span
+	{
+		/* Size */
+		max-width: calc(360px - 2 * var(--app-margin));
+
+		/* Overflow */
+		flex-wrap: wrap;
+	}
 }

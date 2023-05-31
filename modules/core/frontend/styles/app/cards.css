@@ -68,6 +68,9 @@
 		width: auto;
 		height: auto;
 
+		/* Spacing */
+		padding: var(--app-margin);
+
 		/* Appearance */
 		background-color: var(--app-bgcolor-60);
 	}
