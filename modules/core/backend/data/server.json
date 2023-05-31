@@ -40,6 +40,6 @@
 		"webp": "image/webp"
 	},
 	"interactive": true,
-	"autorestart": true,
+	"autorestart": false,
 	"tokenSize": 128
 }
