@@ -157,6 +157,9 @@ export default async (/** @type {string} */ json) =>
 		if (title.length > 50)
 			return JSON.stringify({ success: false, code: 400, message: 'Za długi tytuł.' });
 
+		if (!full_description)
+			return JSON.stringify({ success: false, code: 400, message: 'Brak opisu atrakcji.' });
+
 		if (full_description.length > 600)
 			return JSON.stringify({ success: false, code: 400, message: 'Za długi opis atrakcji.' });
 
