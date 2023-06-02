@@ -155,17 +155,6 @@ export default class Core extends Module
 			target: 'core/credits',
 			icon: '/core/frontend/icons/attribution.svg'
 		});
-
-		Resources.addMenuGroup({ name: 'forms', text: 'Formularze' });
-		Resources.addMenuEntry(
-		{
-			group: 'forms',
-			name: 'form',
-			text: 'Formularz',
-			target: 'core/form',
-			icon: '/core/frontend/icons/post-add.svg',
-			permissions: {module: 'core', name: 'session'}
-		});
 	}
 
 	static #addRegisterMethods()

@@ -32,7 +32,7 @@ export default class Forms extends Module
 		{
 			group: 'forms',
 			name: 'form',
-			text: 'Formularz',
+			text: 'Zgłoś atrakcję programową',
 			target: 'forms/form',
 			icon: '/core/frontend/icons/post-add.svg',
 			permissions: {module: 'core', name: 'session'}
