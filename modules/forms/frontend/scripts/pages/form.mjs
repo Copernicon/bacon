@@ -179,6 +179,9 @@ const users = new Map();
 		if (User.user == id)
 			return;
 
+		if (document.querySelector(`input[value*="ID: ${id}"]:not([id="forms/form/user"])`))
+			return;
+
 		const userData = id === null ? null : (users.get(id) ?? null);
 		const span = document.createElement('span');
 
