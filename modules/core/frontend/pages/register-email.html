@@ -102,9 +102,9 @@
 			</form-column>
 			<form-column>
 				<div>
-					<span><label for="phone">Numer telefonu <small>Domyślnie +48 (Polska)</small></label></span>
+					<span><span class="red">*</span> <label for="phone">Numer telefonu <small>Dom. +48 (Polska)</small></label></span>
 					<span>
-						<input name="phone" type="tel" pattern="(?:\+[1-9])?[\d \-]+" maxlength="32"
+						<input name="phone" type="tel" pattern="(?:\+[1-9])?[\d \-]+" maxlength="32" required
 							onchange="try { setCustomValidity('') } catch {}"
 							oninvalid="setCustomValidity('To pole musi zawierać prawidłowy numer telefonu.')"
 						>
