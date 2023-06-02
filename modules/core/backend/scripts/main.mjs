@@ -65,6 +65,7 @@ export default class Core extends Module
 		Resources.addStyle('/core/frontend/styles/std/main.css');
 		Resources.addStyle('/core/frontend/styles/std/nav.css');
 		Resources.addStyle('/core/frontend/styles/std/root.css');
+		Resources.addStyle('/core/frontend/styles/std/table.css');
 		Resources.addStyle('/core/frontend/styles/std/utils.css');
 	}
 
@@ -174,7 +175,17 @@ export default class Core extends Module
 
 	static #addLoginMethods()
 	{
-		Login.addMethod({ name: 'E-mail', logo: '/core/frontend/icons/email.svg', target: 'core/login-email' });
+		Login.addMethod(
+		{
+			name: 'Hasło',
+			logo: '/core/frontend/icons/password.svg',
+			pages: {
+				login: 'core/login-password',
+				add: 'core/add-password',
+				remove: 'core/remove-password',
+			},
+			API: '/core/api/v0/login-password',
+		});
 	}
 
 	// @ts-ignore

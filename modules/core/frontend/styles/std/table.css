@@ -1,0 +1,57 @@
+@layer core_base
+{
+	table
+	{
+		/* Spacing */
+		margin: var(--app-margin);
+		padding: var(--app-margin);
+		border-spacing: 0px;
+
+		/* Appearance */
+		background-color: var(--app-bgcolor-20);
+		border-collapse: collapse;
+	}
+
+	thead
+	{
+		/* Direction */
+		vertical-align: bottom;
+	}
+
+	thead > tr:last-child
+	{
+		/* Spacing */
+		border-bottom-color: var(--app-bgcolor-30);
+		border-bottom-width: 1px;
+		border-bottom-style: solid;
+	}
+
+	thead > tr > td
+	{
+		/* Spacing */
+		padding: var(--app-margin);
+	}
+
+	tbody
+	{
+		/* Direction */
+		vertical-align: top;
+	}
+
+	tbody > tr:first-child > td
+	{
+		padding-top: var(--app-margin);
+	}
+
+	tbody > tr:last-child > td
+	{
+		padding-bottom: var(--app-margin);
+	}
+
+	td
+	{
+		padding-left: var(--app-margin);
+		padding-right: var(--app-margin);
+		padding-top: 0;
+	}
+}
