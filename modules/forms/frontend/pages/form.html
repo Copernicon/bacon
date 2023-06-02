@@ -60,7 +60,39 @@
 				<div>
 					<span><label for="type" class="small">Jakiego rodzaju atrakcję programową chcesz zgłosić?</label></span>
 					<span>
-						<select name="type" required data-enables="type_others" data-enables-value="Inne" id="forms/form/type_others">
+						<select name="type" required data-enables="type_others" data-enables-value="Inne" id="forms/form/type_others"
+							onchange=
+							"
+								const track = document.querySelector('select[name=track]');
+
+								if (!track)
+									return;
+
+								switch (this.value)
+								{
+									case 'RPG':
+
+										track.value = 'RPG';
+										track.disabled = true;
+										track.setAttribute('readonly', '');
+
+										break;
+
+									case 'LARP':
+
+										track.value = 'LARP';
+										track.disabled = true;
+										track.setAttribute('readonly', '');
+
+										break;
+
+									default:
+
+										track.disabled = false;
+										track.removeAttribute('readonly');
+								}
+							"
+						>
 							<option selected disabled></option>
 							<option value="prelekcja">Prelekcja</option>
 							<option value="konkurs">Konkurs</option>
