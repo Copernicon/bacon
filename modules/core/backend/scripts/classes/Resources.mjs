@@ -1,5 +1,4 @@
 import { JSDOM } from 'jsdom';
-import app from '/core/shared/data/app.json' assert { type: 'json' };
 
 /**
 
@@ -477,38 +476,10 @@ export default class Resources
 	static getAside()
 	{
 		const aside = document.createElement('aside');
-		const icon = document.createElement('app-icon');
 		const img = document.createElement('img');
-
-		switch (app.type)
-		{
-			case 'dev':
-
-				img.setAttribute('src', '/core/frontend/icons/dev.svg');
-				img.setAttribute('title', 'Wersja developerska');
-				break;
-
-			case 'test':
-
-				img.setAttribute('src', '/core/frontend/icons/preview.svg');
-				img.setAttribute('title', 'Wersja testowa');
-				break;
-
-			case 'pro':
-			default:
-
-				img.setAttribute('src', '/core/frontend/icons/bacon.png');
-				img.setAttribute('width', '24');
-				img.setAttribute('height', '24');
-				img.setAttribute('title', 'Wersja publiczna');
-		}
-
-		const name = document.createElement('app-name');
-		name.append(app.name);
-
-		icon.append(img);
-		aside.append(icon);
-		aside.append(name);
+		img.setAttribute('src', '/core/frontend/icons/external/Copernicon.png');
+		img.setAttribute('height', '24px');
+		aside.append(img);
 
 		return aside.outerHTML;
 	}
