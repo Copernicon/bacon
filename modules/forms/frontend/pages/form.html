@@ -154,16 +154,13 @@
 					</span>
 				</div>
 				<div data-type="RPG" hidden>
-					<span><label for="style" class="small">Zaznacz styl, który najlepiej opisuje twoją sesję.</label></span>
-					<select name="style" data-required data-enables="style_description" data-enables-value="inny">
-						<option selected disabled></option>
-						<option value="zwyciestwo">Sesja skupia się na dążeniu do jasno określonego zwycięstwa, a jej fabuła jest jedynie pretekstem dla sekwencji walki oraz innych rzeczy wymagających używania kości.</option>
-						<option value="historia">Najważniejszą częścią sesji jest historia, której częścią są postacie graczy. Może mieć ona związek zarówno z przeszłością postaci, jak i rozbudowanym pod tym względem scenariuszem.</option>
-						<option value="świat">Na sesji tworzysz świat mający konkretne zasady i nie chcesz, by je łamano. Istotna jest dla ciebie symulacja konkretnej sytuacji, wrzucenie w nią postaci i zobaczenie co się wydarzy.</option>
-						<option value="emocje">Istotne jest dla ciebie wywołanie emocji, chcesz, by gracze jak najbardziej wczuli się w odgrywane postacie i wczuli się w sytuacje wokół nich.</option>
-						<option value="zabawa">Stawiasz na sesji na dobrą zabawę, nie dając graczom większych ograniczeń. Najważniejsze jest dla ciebie, by wszyscy się śmiali, nawet jeśli może to wychodzić poza ramy świata czy napisanej historii.</option>
-						<option value="inny">Inny</option>
-					</select>
+					<span><label for="style" class="small">Opisz styl, który najlepiej opisuje twoją sesję.</label></span>
+						<textarea
+							data-required data-enables="style_description"
+							data-enables-value="inny"
+							name="style"
+							maxlength="500"
+						></textarea>
 				</div>
 				<div data-containes="style_description">
 					<span><label for="style_description" class="small">Podaj pełny opis preferowanego stylu prowadzenia sesji RPG/LARP.</label></span>

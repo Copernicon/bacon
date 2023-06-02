@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS `forms` (
   `beginners_friendly` int(1) unsigned DEFAULT NULL,
   `age` enum('*','12-','12-18','18+') COLLATE utf8_unicode_ci DEFAULT NULL,
   `num_players` int(10) unsigned DEFAULT NULL,
-  `style` enum('zwyciestwo','historia','świat','emocje','zabawa','inny') COLLATE utf8_unicode_ci DEFAULT NULL,
+  `style` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
   `style_description` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
   `tech_requirements` text COLLATE utf8_unicode_ci NOT NULL,
   `tech_requirements_others` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
