@@ -10,18 +10,51 @@
 				<div>
 					<span><label for="login"><span class="red">*</span> Login <small>Twoja ksywka w aplikacji</small></label></span>
 					<span>
-						<input name="login" type="text" pattern="(?:[\p{L}\p{N}]+(?:[_\-]?[\p{L}\p{N}]+)*){3,64}" minlength="3" maxlength="64" required>
+						<input name="login" type="text" pattern="(?:[\p{L}\p{N}]+(?:[_\-]?[\p{L}\p{N}]+)*){3,64}" minlength="3" maxlength="64" required
+							onchange="try { setCustomValidity('') } catch {}"
+							oninvalid="setCustomValidity(
+									'To pole musi zawierać od 3 do 64 znaków.\nDozwolone znaki:\n\n'
+								+	'​  ​  ​  ​  • alfanumeryczne:\n'
+								+	'​  ​  ​  ​  ​  ​  ​  ​  • litery\n'
+								+	'​  ​  ​  ​  ​  ​  ​  ​  • numeryczne\n'
+								+	'​  ​  ​  ​  • nie–alfanumeryczne¹:\n'
+								+	'​  ​  ​  ​  ​  ​  ​  ​  • podkreślenie (U+005F)\n'
+								+	'​  ​  ​  ​  ​  ​  ​  ​  • myślnik (U+002D)\n\n'
+								+	'1. Zarówno bezpośdenio przed, jak bezpośdenio za znakami nie–\n'
+								+	'​  ​  ​  alfanumerycznymi, muszą znajdować się znaki alfanumeryczne.'
+							)"
+						>
 					</span>
 				</div>
 			</form-column>
 			<form-column>
 				<div>
 					<span><label for="nick_name">Ksywka <small>Twoja ksywka w realu</small></label></span>
-					<span><input name="nick_name" type="text" pattern="(?:[\p{L}\p{N}]+(?:[ \-]?[\p{L}\p{N}]+)*){1,64}" maxlength="64"></span>
+					<span>
+						<input name="nick_name" type="text" pattern="(?:[\p{L}\p{N}]+(?:[ \-]?[\p{L}\p{N}]+)*){1,64}" maxlength="64"
+							onchange="try { setCustomValidity('') } catch {}"
+							oninvalid="setCustomValidity(
+									'To pole musi zawierać od 3 do 64 znaków.\nDozwolone znaki:\n\n'
+								+	'​  ​  ​  ​  • alfanumeryczne:\n'
+								+	'​  ​  ​  ​  ​  ​  ​  ​  • litery\n'
+								+	'​  ​  ​  ​  ​  ​  ​  ​  • numeryczne\n'
+								+	'​  ​  ​  ​  • nie–alfanumeryczne¹:\n'
+								+	'​  ​  ​  ​  ​  ​  ​  ​  • spacja (U+0020)\n'
+								+	'​  ​  ​  ​  ​  ​  ​  ​  • myślnik (U+002D)\n\n'
+								+	'1. Zarówno bezpośdenio przed, jak bezpośdenio za znakami nie–\n'
+								+	'​  ​  ​  alfanumerycznymi, muszą znajdować się znaki alfanumeryczne.'
+							)"
+						>
+					</span>
 				</div>
 				<div>
 					<span><label for="phone">Numer telefonu <small>Domyślnie +48 (Polska)</small></label></span>
-					<span><input name="phone" type="tel" pattern="(?:\+[1-9])?[\d \-]+" maxlength="32"></span>
+					<span>
+						<input name="phone" type="tel" pattern="(?:\+[1-9])?[\d \-]+" maxlength="32"
+							onchange="try { setCustomValidity('') } catch {}"
+							oninvalid="setCustomValidity('To pole musi zawierać prawidłowy numer telefonu.')"
+						>
+					</span>
 				</div>
 			</form-column>
 			<form-column>
