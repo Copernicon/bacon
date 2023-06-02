@@ -20,7 +20,7 @@ export default async (/** @type {string} */ json) =>
 	const firstName = String(googleUser.first_name).replaceAll(/[^\p{L}\p{N} -]/gu, '').replaceAll(/([ -]){2,}/gu, '$1').substring(0, 64) || null;
 	const nickName = String(data.nick_name) || null;
 	const lastName = String(googleUser.last_name).replaceAll(/[^\p{L}\p{N} -]/gu, '').replaceAll(/([ -]){2,}/gu, '$1').substring(0, 64) || null;
-	const phone = String(data.phone).replaceAll(/[^+\d]/gu, '') || null;
+	const phone = String(data.phone).replaceAll(/[^+\d]/gu, '');
 	const logo = String(googleUser.logo).substring(0, 192) || null;
 	const searchable = Number(data.searchable);
 	const googleUserID = String(googleUser.id);
@@ -33,7 +33,7 @@ export default async (/** @type {string} */ json) =>
 		if (typeof nickName == 'string' && !nickName.match(/^(?:[\p{L}\p{N}]+(?:[ -]?[\p{L}\p{N}]+)*){1,64}$/u))
 			return JSON.stringify({ success: false, code: 400, message: 'Nieprawidłowa ksywka.' });
 
-		if (typeof phone == 'string' && (!phone.match(/^(?:\+[1-9])?\d+$/u) || phone.length > 32))
+		if (!phone.match(/^(?:\+[1-9])?\d+$/u) || phone.length > 32)
 			return JSON.stringify({ success: false, code: 400, message: 'Nieprawidłowy numer telefonu.' });
 
 		if (![0, 1].includes(searchable))

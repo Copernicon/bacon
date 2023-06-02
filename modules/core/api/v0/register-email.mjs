@@ -20,7 +20,7 @@ export default async (/** @type {string} */ json) =>
 	const firstName = String(data.first_name) || null;
 	const nickName = String(data.nick_name) || null;
 	const lastName = String(data.last_name) || null;
-	const phone = String(data.phone).replaceAll(/[^+\d]/gu, '') || null;
+	const phone = String(data.phone).replaceAll(/[^+\d]/gu, '');
 	let logo = String(data.logo) || null;
 	const extension = String(data.logo_extension) || null;
 	const searchable = Number(data.searchable);
@@ -51,7 +51,7 @@ export default async (/** @type {string} */ json) =>
 		if (typeof lastName == 'string' && !lastName.match(/^(?:[\p{L}\p{N}]+(?:[ -]?[\p{L}\p{N}]+)*){1,64}$/u))
 			return JSON.stringify({ success: false, code: 400, message: 'Nieprawidłowe nazwisko.' });
 
-		if (typeof phone == 'string' && (!phone.match(/^(?:\+[1-9])?\d+$/u) || phone.length > 32))
+		if (!phone.match(/^(?:\+[1-9])?\d+$/u) || phone.length > 32)
 			return JSON.stringify({ success: false, code: 400, message: 'Nieprawidłowy numer telefonu.' });
 
 		if (![0, 1].includes(searchable))
