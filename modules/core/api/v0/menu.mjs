@@ -6,8 +6,8 @@ import server from '/core/backend/data/server.json' assert { type: 'json' };
 export default async (/** @type {string} */ json) =>
 {
 	const data = noexcept(JSON.parse)(json);
-	const token = String(data.token).length == 0 ? null : String(data.token);
-	const project = String(data.token).length == 0 ? null : Number(data.project);
+	const token = String(data.token) || null;
+	const project = Number(data.token) || null;
 
 	if (token === null)
 	{

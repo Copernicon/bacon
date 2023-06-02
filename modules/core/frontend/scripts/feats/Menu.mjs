@@ -130,8 +130,8 @@ export default class Menu
 		const path = '/core/api/v0/menu';
 		const file = await fetch(path, { method: 'POST', body: JSON.stringify(
 		{
-			token: Session.token,
-			project: Projects.id
+			token: Session.token ?? '',
+			project: Projects.id ?? 0
 		})}).catch(message => void console.error(message));
 		const json = await file?.json().catch(message => void console.error(message));
 
