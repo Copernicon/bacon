@@ -106,8 +106,8 @@ export default async (/** @type {string} */ json) =>
 			params: { user, code }
 		},
 		{
-			statement: 'INSERT INTO logs (module, event, user, target) VALUES (:module, :event, :user, :user)',
-			params: { module: 'core', event: 'user_register', user }
+			statement: 'INSERT INTO logs (module, event, user, target, data) VALUES (:module, :event, :user, :user, :data)',
+			params: { module: 'core', event: 'user_register', user, data: JSON.stringify({ type: 'email' })}
 		},
 	]);
 
@@ -151,19 +151,35 @@ export default async (/** @type {string} */ json) =>
 
 		await SQL.query
 		(
-			'INSERT INTO logs (module, event, target, data) VALUES (:module, :event, :target, :data)',
-			{
-				module: 'core',
-				event: 'mail_send',
-				target: user,
-				data: JSON.stringify({ type: 'user_activation', success: success })
-			}
+			'INSERT INTO logs (module, event, user, target, data) VALUES (:module, :event, :user, :user, :data)',
+			{ module: 'core', event: 'mail_send', user, data: JSON.stringify({ type: 'user_activation', success: success })}
 		);
+
+		if (!success)
+		{
+			await SQL.transaction(
+			[
+				{
+					statement: 'DELETE FROM users WHERE id = :user',
+					params: { user }
+				},
+				{
+					statement: 'INSERT INTO logs (module, event, user, target, data) VALUES (:module, :event, :user, :user, :data)',
+					params: { module: 'core', event: 'user_remove', user, data: JSON.stringify({ reason: 'Sending an e-mail with activation code failed.' })}
+				},
+			]);
+
+			return JSON.stringify(
+			{
+				success: false,
+				message: 'Nie udało się wysłać maila z kodem aktywacyjnym. Zarejestruj się, proszę, ponownie. Może użyjesz innego adresu e-mail?'
+			});
+		}
 	}
 
 	return JSON.stringify(
 	{
 		success: true,
-		message: 'Zarejestrowano pomyślnie. Atywuj swoje konto w ciągu godziny. Link aktywacyjny znajdziesz na mailu. Sprawdź też spam.'
+		message: 'Zarejestrowano pomyślnie. Atywuj swoje konto w ciągu godziny. Link aktywacyjny znajdziesz w mailu. Sprawdź też spam.'
 	});
 };

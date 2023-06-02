@@ -167,6 +167,7 @@ Gets a list of login methods.
 <br>
 
 ### `POST /core/api/v0/login-email`
+#### `action: login`
 Logins a user using *Login & Password*.
 
 > <br>
@@ -200,6 +201,15 @@ Logins a user using *Login & Password*.
 >
 > <br>
 <br>
+
+#### `action: check availability`
+TODO
+
+#### `action: add login method`
+TODO
+
+#### `action: remove login method`
+TODO
 
 ### `POST /core/api/v0/logout`
 Logouts a user.

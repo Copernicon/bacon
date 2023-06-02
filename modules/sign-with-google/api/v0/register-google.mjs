@@ -10,7 +10,7 @@ export default async (/** @type {string} */ json) =>
 
 	const data = noexcept(JSON.parse)(json);
 	const code = String(data.code);
-	const googleUser = await Google.validateCode(code);
+	const googleUser = await Google.validateCode(code, 'register');
 
 	if (!googleUser)
 		return JSON.stringify({ success: false, code: 400, message: 'Walidacja kodu uwierzytelniającego nieudana.' });
@@ -46,6 +46,9 @@ export default async (/** @type {string} */ json) =>
 	if (await SQL.select('SELECT NULL FROM users WHERE email = ? LIMIT 1', [email]))
 		return JSON.stringify({ success: false, code: 406, message: 'E-mail zajęty.'});
 
+	if (await SQL.select('SELECT NULL FROM auth_google WHERE id = ? LIMIT 1', [googleUserID]))
+		return JSON.stringify({ success: false, code: 406, message: 'To konto Google już jest zarejestrowane.'});
+
 	const insert = await SQL.insert
 	(
 			'INSERT INTO users (login, email, first_name, nick_name, last_name, phone, searchable, logo, active)'
@@ -66,8 +69,8 @@ export default async (/** @type {string} */ json) =>
 			params: { user, id: googleUserID }
 		},
 		{
-			statement: 'INSERT INTO logs (module, event, user, target) VALUES (:module, :event, :user, :user)',
-			params: { module: 'core', event: 'user_register', user }
+			statement: 'INSERT INTO logs (module, event, user, target, data) VALUES (:module, :event, :user, :user, :data)',
+			params: { module: 'core', event: 'user_register', user, data: JSON.stringify({ type: 'google' })}
 		},
 	]);
 

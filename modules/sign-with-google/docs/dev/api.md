@@ -30,6 +30,7 @@ Registers a new user account using *Sign with Google*.
 <br>
 
 ### `POST /sign-with-google/api/v0/login-google`
+#### `action: login`
 Logins a user using *Sign with Google*.
 
 > <br>
@@ -62,3 +63,12 @@ Logins a user using *Sign with Google*.
 >
 > <br>
 <br>
+
+#### `action: check availability`
+TODO
+
+#### `action: add login method`
+TODO
+
+#### `action: remove login method`
+TODO

@@ -73,7 +73,7 @@ export default class Login
 	{
 		switch (response.id)
 		{
-			case 'core/login-email':
+			case 'core/login-password':
 
 				if (typeof response.json.token != 'string')
 					return;

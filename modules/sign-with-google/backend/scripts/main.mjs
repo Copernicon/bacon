@@ -67,11 +67,16 @@ export default class SignWithGoogle extends Module
 		{
 			name: 'Google',
 			logo: '/sign-with-google/frontend/icons/external/google.80.svg',
-			target: SignWithGoogle.#getGoogleSignURL('login')
+			pages: {
+				login: SignWithGoogle.#getGoogleSignURL('login'),
+				add: SignWithGoogle.#getGoogleSignURL('add'),
+				remove: 'sign-with-google/remove-google',
+			},
+			API: '/sign-with-google/api/v0/login-google',
 		});
 	}
 
-	static #getGoogleSignURL(/** @type {'login'|'register'} */ endpoint)
+	static #getGoogleSignURL(/** @type {'login'|'register'|'add'} */ endpoint)
 	{
 		const scopes =
 		[

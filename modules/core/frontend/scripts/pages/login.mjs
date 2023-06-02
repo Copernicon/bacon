@@ -48,7 +48,7 @@
 		title.append(method.name);
 
 		const card = document.createElement('app-card');
-		card.setAttribute('data-goto', method.target);
+		card.setAttribute('data-goto', method.pages.login);
 		card.append(img, title);
 
 		cards.append(card);
