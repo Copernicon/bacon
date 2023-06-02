@@ -1,7 +1,6 @@
 import bcrypt from 'bcryptjs';
 import cryptoRandomString from 'crypto-random-string';
 import Mail from '/core/backend/scripts/interfaces/Mail.mjs';
-import Uploads from '/core/backend/scripts/interfaces/Uploads.mjs';
 import SQL from '/core/backend/scripts/interfaces/SQL.mjs';
 import noexcept from '/core/shared/scripts/utils/noexcept.mjs';
 import app from '/core/shared/data/app.json' assert { type: 'json' };
@@ -21,8 +20,6 @@ export default async (/** @type {string} */ json) =>
 	const nickName = String(data.nick_name) || null;
 	const lastName = String(data.last_name) || null;
 	const phone = String(data.phone).replaceAll(/[^+\d]/gu, '');
-	let logo = String(data.logo) || null;
-	const extension = String(data.logo_extension) || null;
 	const searchable = Number(data.searchable);
 
 	// validate user data
@@ -56,20 +53,6 @@ export default async (/** @type {string} */ json) =>
 
 		if (![0, 1].includes(searchable))
 			return JSON.stringify({ success: false, code: 400, message: 'Nieprawidłowa wartość pola zgody na wyszukiwanie.' });
-
-		if (logo !== null)
-		{
-			if (extension === null)
-				return JSON.stringify({ success: false, code: 400, message: 'Brak rozszerzenia.' });
-
-			if (!Object.keys(server.uploadImgExtensions).includes(extension))
-				return JSON.stringify({ success: false, code: 400, message: 'Nieprawidłowe rozszerzenie.' });
-
-			const maxSize = server.maxUploadSize * 1024 ** 2;
-
-			if (logo.length > maxSize)
-				return JSON.stringify({ success: false, code: 400, message: `Plik z logo za duży. Maksymalny rozmiar: ${maxSize} MiB).` });
-		}
 	}
 
 	if (await SQL.select('SELECT NULL FROM users WHERE login = ? LIMIT 1', [login]))
@@ -77,9 +60,6 @@ export default async (/** @type {string} */ json) =>
 
 	if (await SQL.select('SELECT NULL FROM users WHERE email = ? LIMIT 1', [email]))
 		return JSON.stringify({ success: false, code: 406, message: 'E-mail zajęty.'});
-
-	if (logo !== null && extension !== null)
-		logo = Uploads.upload(logo, extension);
 
 	// ~ .25s on ~3 GHz Intel Core i7
 	const salt = bcrypt.genSaltSync(12);

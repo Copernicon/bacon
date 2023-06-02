@@ -21,7 +21,6 @@ export default async (/** @type {string} */ json) =>
 	const nickName = String(data.nick_name) || null;
 	const lastName = String(googleUser.last_name).replaceAll(/[^\p{L}\p{N} -]/gu, '').replaceAll(/([ -]){2,}/gu, '$1').substring(0, 64) || null;
 	const phone = String(data.phone).replaceAll(/[^+\d]/gu, '');
-	const logo = String(googleUser.logo).substring(0, 192) || null;
 	const searchable = Number(data.searchable);
 	const googleUserID = String(googleUser.id);
 
