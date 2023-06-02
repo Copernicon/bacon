@@ -369,5 +369,20 @@ export default class Forms
 		output.innerHTML = message;
 		output.removeAttribute('hidden');
 		output.scrollIntoView();
+
+		const br = document.createElement('br');
+		const button = document.createElement('button');
+		const img = document.createElement('img');
+
+		img.setAttribute('src', '/core/frontend/icons/refresh.svg');
+		img.setAttribute('width', '24');
+		img.setAttribute('height', '24');
+		img.classList.add('icon');
+		button.append(img);
+		button.append('Wyślij ponownie');
+		button.addEventListener('click', () => void document.location.reload());
+		button.style.marginTop = 'var(--app-margin)';
+
+		output.append(br, button);
 	}
 }
