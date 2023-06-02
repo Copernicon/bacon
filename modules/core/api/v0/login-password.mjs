@@ -38,13 +38,23 @@ async function login(/** @type {Object.<string, *>} */ data)
 	if (!auth.methods.email.login)
 		return JSON.stringify({ success: false, code: 503, message: 'Logowanie za pomocą hasła jest obecnie wyłączone.' });
 
-	const login = String(data.login).toLowerCase();
+	const login = String(data.login).toLowerCase() || null;
+	const email = String(data.email).toLowerCase() || null;
 	const password = String(data.password);
 
 	// validate user data
 	{
-		if (!login.match(/^(?:[\p{L}\p{N}]+(?:[_-]?[\p{L}\p{N}]+)*){3,64}$/u))
+		if (login !== null && !login.match(/^(?:[\p{L}\p{N}]+(?:[_-]?[\p{L}\p{N}]+)*){3,64}$/u))
 			return JSON.stringify({ success: false, code: 400, message: 'Nieprawidłowy login.' });
+
+		if (email !== null && !email.match(/.@./u))
+			return JSON.stringify({ success: false, code: 400, message: 'Nieprawidłowy adres e-mail.' });
+
+		if (email !== null && email.length > 128)
+			return JSON.stringify({ success: false, code: 400, message: 'Za długi adres e-mail.' });
+
+		if (login === null && email === null)
+			return JSON.stringify({ success: false, code: 400, message: 'Brak zarówno hasła, jak i adresu e-mail.' });
 
 		if (password.length < 16)
 			return JSON.stringify({ success: false, code: 400, message: 'Za krótkie hasło.' });
@@ -53,10 +63,28 @@ async function login(/** @type {Object.<string, *>} */ data)
 			return JSON.stringify({ success: false, code: 400, message: 'Za długie hasło.' });
 	}
 
+	/** @type {string} */
+	let credential = '';
+
+	/** @type {string[]} */
+	const array = [];
+
+	if (login === null && email !== null)
+	{
+		credential = 'email';
+		array.push(email);
+	}
+	else
+	if (login !== null)
+	{
+		credential = 'login';
+		array.push(login);
+	}
+
 	const select = await SQL.select
 	(
-		'SELECT active, banned, id, password, first_name, nick_name, last_name, logo FROM users WHERE login = :login LIMIT 1',
-		{ login: login }
+		`SELECT active, banned, id, password, first_name, nick_name, last_name, logo FROM users WHERE ${credential} = ? LIMIT 1`,
+		array
 	);
 
 	if (select === null)
