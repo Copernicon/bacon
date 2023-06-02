@@ -12,7 +12,7 @@
 			<form-column>
 				<div>Informacje podstawowe</div>
 				<div>
-					<span><label for="mention" class="small">Jak zapisać Cię w programie atrakcji konwentowych?</label></span>
+					<span><span class="red">*</span> <label for="mention" class="small">Jak zapisać Cię w progr. atrakcji konwentowych?</label></span>
 					<span>
 						<select name="mention" required>
 							<option value="imie_nazwisko">Imię Nazwisko</option>
@@ -23,7 +23,7 @@
 				</div>
 				<div>
 					<span><span>Osoby współprowadzące</span></span>
-					<span><label for="cohort_mention" class="small">Jak zapisać osobę współprowadzącą w programie?</label></span>
+					<span><span class="red">*</span> <label for="cohort_mention" class="small">Jak zapisać osobę współprow. w programie?</label></span>
 					<span style="margin-top: calc(-1 * var(--app-margin)); color: var(--app-color-green-80); gap: calc(.5 * var(--app-margin));">
 						<img src="/core/frontend/icons/verified.svg" width="16px" height="16px">
 						<small class="input-success">Ta opcja ma znaczenie tylko dla osób z listy.</small>
@@ -37,10 +37,10 @@
 					</span>
 					<span><label for="cohort_email" class="small">Adres e-mail osoby współprowadzącej.</label></span>
 					<span><small class="input-info" style="margin-top: -16px;">Ta opcja ma znaczenie tylko dla osób spoza listy.</small></span>
-					<span><input id="cohort_email" type="email" minlength="3" maxlength="128" placeholder="opcjonalnie"></span>
+					<span><input id="cohort_email" type="email" minlength="3" maxlength="128"></span>
 					<span><label for="cohort_phone" class="small">Numer telefonu osoby współprowadzącej.</label></span>
 					<span><small class="input-info" style="margin-top: -16px;">Ta opcja ma znaczenie tylko dla osób spoza listy.</small></span>
-					<span><input id="cohort_phone" type="tel" pattern="(?:\+[1-9])?[\d \-]+" maxlength="32" placeholder="opcjonalnie"></span>
+					<span><input id="cohort_phone" type="tel" pattern="(?:\+[1-9])?[\d \-]+" maxlength="32"></span>
 					<span>
 						<small class="input-warning">
 							Jeśli możesz, to wybierz, proszę, osobę z listy zamiast wpisywać ją ręcznie. Znacznie ułatwi to pracę orgom.
@@ -58,7 +58,7 @@
 			<form-column>
 				<div>Punkt programu</div>
 				<div>
-					<span><label for="type" class="small">Jakiego rodzaju atrakcję programową chcesz zgłosić?</label></span>
+					<span><span class="red">*</span> <label for="type" class="small">Jakiego rodzaju atrakcję progr. chcesz zgłosić?</label></span>
 					<span>
 						<select name="type" required data-enables="type_others" data-enables-value="Inne" id="forms/form/type_others"
 							onchange=
@@ -108,6 +108,7 @@
 				<div data-type="konkurs" hidden>
 					<span>
 						<label for="type_contest" class="small">
+							<span class="red">*</span>
 							Czy zgłaszany konkurs jest indywidualny czy drużynowy?
 						</label>
 					</span>
@@ -122,6 +123,7 @@
 				<div>
 					<span>
 						<label for="duration" class="small">
+							<span class="red">*</span>
 							Długość proponowanej atrakcji programowej.
 						</label>
 					</span>
@@ -135,7 +137,7 @@
 					</span>
 				</div>
 				<div>
-					<span><label for="track" class="small">Do jakiego bloku zgłaszasz atrakcję programową?</label></span>
+					<span><span class="red">*</span> <label for="track" class="small">Do jakiego bloku zgł. atrakcję programową?</label></span>
 					<span>
 						<select name="track" required>
 							<option selected disabled></option>
@@ -152,11 +154,14 @@
 					</span>
 				</div>
 				<div>
-					<span><label for="title" class="small">Jaki jest tytuł atrakcji programowej, którą zgłaszasz?</label></span>
+					<span><span class="red">*</span> <label for="title" class="small">Jaki jest tytuł atrakcji progr., którą zgłaszasz?</label></span>
 					<span><input name="title" type="text" maxlength="50" required></span>
 				</div>
 				<div>
-					<span><label for="full_description" class="small">Podaj pełny opis zgłaszanej atrakcji programowej.</label></span>
+					<span>
+						<span class="red">*</span>
+						<label for="full_description" class="small">Podaj pełny opis zgłaszanej atrakcji programowej.</label>
+					</span>
 					<span><textarea name="full_description" maxlength="600" required></textarea></span>
 				</div>
 			</form-column>
@@ -427,6 +432,7 @@
 					<span>
 						<input type="checkbox" data-required="Zgoda dobrowolna, acz wymagana.">
 						<small class="input-info">
+							<span class="red" style="display: inline; margin-right: var(--app-margin)">*</span>
 							Wyrażam zgodę na przetwarzanie moich danych osobowych na potrzeby rozpatrzenia mojego zgłoszenia punktu programu i jego realizacji
 							na wydarzeniu Copernicon 2023 organizowanego przez Stowarzyszenie Miłośników Gier i Fantastyki THORN z siedzibą w Toruniu.
 							Więcej informacji w <a href="https://copernicon.pl/polityka-prywatnosci/">Polityce Prywatności</a>.
@@ -435,6 +441,7 @@
 					<span>
 						<input type="checkbox" data-required="Zgoda dobrowolna, acz wymagana.">
 						<small class="input-info">
+							<span class="red" style="display: inline; margin-right: var(--app-margin)">*</span>
 							Wyrażam zgodę na opublikowanie mojego imienia, nazwiska oraz pseudonimu na stronie internetowej Copernicon 2023,
 							w informatorze konwentowym oraz w mediach społecznościowych prowadzonych przez Copernicon.
 						</small>
@@ -442,6 +449,7 @@
 					<span>
 						<input type="checkbox" data-required="Zgoda dobrowolna, acz wymagana.">
 						<small class="input-info">
+							<span class="red" style="display: inline; margin-right: var(--app-margin)">*</span>
 							Wyrażam zgodę na przesyłanie przez Stowarzyszenie Miłośników Gier i Fantastyki THORN z siedzibą w Toruniu,
 							informacji drogą elektroniczną, zgodnie z ustawą z dnia 18.07.2002 r. o świadczeniu usług drogą elektroniczną
 							(Dz.U. z 2002 r. Nr 144, poz. 1204 z późn. zm.).
