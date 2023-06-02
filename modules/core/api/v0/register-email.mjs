@@ -66,10 +66,10 @@ export default async (/** @type {string} */ json) =>
 	const hash = bcrypt.hashSync(password, salt);
 	const insert = await SQL.insert
 	(
-			'INSERT INTO users (login, email, password, first_name, nick_name, last_name, phone, searchable, logo)'
-		+	' VALUES (:login, :email, :hash, :first_name, :nick_name, :last_name, :phone, :searchable, :logo)',
+			'INSERT INTO users (login, email, password, first_name, nick_name, last_name, phone, searchable)'
+		+	' VALUES (:login, :email, :hash, :first_name, :nick_name, :last_name, :phone, :searchable)',
 		{
-			login, email, hash, first_name: firstName, nick_name: nickName, last_name: lastName, phone, searchable, logo,
+			login, email, hash, first_name: firstName, nick_name: nickName, last_name: lastName, phone, searchable
 		}
 	);
 

@@ -50,10 +50,10 @@ export default async (/** @type {string} */ json) =>
 
 	const insert = await SQL.insert
 	(
-			'INSERT INTO users (login, email, first_name, nick_name, last_name, phone, searchable, logo, active)'
-		+	' VALUES (:login, :email, :first_name, :nick_name, :last_name, :phone, :searchable, :logo, :active)',
+			'INSERT INTO users (login, email, first_name, nick_name, last_name, phone, searchable, active)'
+		+	' VALUES (:login, :email, :first_name, :nick_name, :last_name, :phone, :searchable, :active)',
 		{
-			login, email, first_name: firstName, nick_name: nickName, last_name: lastName, phone, logo, searchable, active: 1
+			login, email, first_name: firstName, nick_name: nickName, last_name: lastName, phone, searchable, active: 1
 		}
 	);
 
