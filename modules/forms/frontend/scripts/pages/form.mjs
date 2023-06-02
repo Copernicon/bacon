@@ -1,4 +1,5 @@
 import Cookies from '/core/frontend/scripts/interfaces/Cookies.mjs';
+import User from '/core/frontend/scripts/feats/User.mjs';
 
 /** @type {Map.<number, { first_name: string?, nick_name: string?, last_name: string? }>} */
 const users = new Map();
@@ -174,6 +175,9 @@ const users = new Map();
 
 			return Number(id);
 		})();
+
+		if (User.user == id)
+			return;
 
 		const userData = id === null ? null : (users.get(id) ?? null);
 		const span = document.createElement('span');
